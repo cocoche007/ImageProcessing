@@ -18,25 +18,25 @@ INCLUDEPATH += C:/QtSDK/Qxt/include/QxtCore
 INCLUDEPATH += C:/QtSDK/Qxt/include/QxtGui
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    modelecouleur.cpp \
-    quantification.cpp \
-    echantillonnage.cpp \
-    transformationgeometrique.cpp \
-    detectioncontours.cpp \
-    fenetreimagetraitee.cpp \
+        MainWindow.cpp \
+    ColorModel.cpp \
+    Quantisation.cpp \
+    Sampling.cpp \
+    GeometricTransformation.cpp \
+    EdgeDetection.cpp \
+    TreatedImageWindow.cpp \
     ../../Commun/Image/cimage.tpp \
-    opmorphomaths.cpp
+    OpMorphoMaths.cpp
 
-HEADERS  += mainwindow.h \
-    modelecouleur.h \
-    quantification.h \
-    echantillonnage.h \
-    transformationgeometrique.h \
-    detectioncontours.h \
-    fenetreimagetraitee.h \
+HEADERS  += MainWindow.h \
+    ColorModel.h \
+    Quantisation.h \
+    Sampling.h \
+    GeometricTransformation.h \
+    EdgeDetection.h \
+    TreatedImageWindow.h \
     ../../Commun/Image/cimage.h \
-    opmorphomaths.h
+    OpMorphoMaths.h
 
 LIBS += -L../../Commun/Maths/qrealfourier/lib/ -LC:\QtSDK\Qxt\lib\mingw
 LIBS += -lqrealfourier -lQxtCore -lQxtGui
