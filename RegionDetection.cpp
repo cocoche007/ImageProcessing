@@ -21,22 +21,23 @@
 //!
 //! @return The created object
 //------------------------------------------------------------------------------
-CRegionDetection::CRegionDetection( QImage *imageIn)
+CRegionDetection::CRegionDetection(QImage *imageIn)
 {
     m_imageOrigin = imageIn;
-    if ( m_imageOrigin )
+    if (m_imageOrigin)
     {
-        m_imageTreated = new QImage( m_imageOrigin->size(), QImage::Format_RGB32);
-        m_imageGray    = new CImageInt( m_imageOrigin->width(), m_imageOrigin->height());
+        m_imageTreated = new QImage(m_imageOrigin->size(), QImage::Format_RGB32);
+        m_imageGray    = new CImageInt(m_imageOrigin->width(), m_imageOrigin->height());
     }
-    
-    createImageGray( m_imageOrigin, m_imageGray);
 
-    if ( m_imageOrigin && m_imageTreated && m_imageGray )
+    createImageGray(m_imageOrigin, m_imageGray);
+
+    if (m_imageOrigin && m_imageTreated && m_imageGray)
         m_isValid = true;
     else
         m_isValid = false;
 }
+
 
 //------------------------------------------------------------------------------
 //! Destructor
@@ -45,11 +46,12 @@ CRegionDetection::CRegionDetection( QImage *imageIn)
 //!
 //! @return _
 //------------------------------------------------------------------------------
-CRegionDetection::~CRegionDetection( void)
+CRegionDetection::~CRegionDetection(void)
 {
     delete m_imageTreated;
     delete m_imageGray;
 }
+
 
 //------------------------------------------------------------------------------
 //! Get the treated image
@@ -58,10 +60,11 @@ CRegionDetection::~CRegionDetection( void)
 //!
 //! @return A pointer on the treated image
 //------------------------------------------------------------------------------
-QImage* CRegionDetection::getImageTreated( void)
+QImage *CRegionDetection::getImageTreated(void)
 {
     return m_imageTreated;
 }
+
 
 //------------------------------------------------------------------------------
 //! Entry point for the region detection
@@ -70,18 +73,18 @@ QImage* CRegionDetection::getImageTreated( void)
 //!
 //! @return _
 //------------------------------------------------------------------------------
-void CRegionDetection::computeDetectionRegion( DETECTION_REGION_TYPE detectionRegionType)
+void CRegionDetection::computeDetectionRegion(DETECTION_REGION_TYPE detectionRegionType)
 {
-    if ( m_isValid )
+    if (m_isValid)
     {
-        switch ( detectionRegionType )
+        switch (detectionRegionType)
         {
-            case DETECTION_REGION_LINE :
+            case DETECTION_REGION_LINE:
                 computeLine();
                 break;
 
-            case DETECTION_REGION_UNKNOWN :
-            default :
+            case DETECTION_REGION_UNKNOWN:
+            default:
                 break;
         }
     }
@@ -99,29 +102,30 @@ void CRegionDetection::computeDetectionRegion( DETECTION_REGION_TYPE detectionRe
 //!
 //! @return _
 //------------------------------------------------------------------------------
-void CRegionDetection::createImageGray( QImage *imageIn, CImageInt *imageOut)
+void CRegionDetection::createImageGray(QImage *imageIn, CImageInt *imageOut)
 {
     int GOut;
 
-    if ( imageIn && imageOut )
+    if (imageIn && imageOut)
     {
-        for ( int x = 0 ; x < imageIn->width() ; x++ )
+        for (int x = 0; x < imageIn->width(); x++)
         {
-            for ( int y = 0 ; y < imageIn->height() ; y++ )
+            for (int y = 0; y < imageIn->height(); y++)
             {
-                GOut = (  299 * qRed( imageIn->pixel( x, y))
-                        + 587 * qGreen( imageIn->pixel( x, y))
-                        + 114 * qBlue( imageIn->pixel( x, y)))
-                       / 1000;
+                GOut = (299 * qRed(imageIn->pixel(x, y)) +
+                        587 * qGreen(imageIn->pixel(x, y)) +
+                        114 * qBlue(imageIn->pixel(x, y))) /
+                       1000;
 
-                if ( GOut < 128 )
-                    (*imageOut)( x, y) = 0;
+                if (GOut < 128)
+                    (*imageOut)(x, y) = 0;
                 else
-                    (*imageOut)( x, y) = CIMAGEINT_MAX;
+                    (*imageOut)(x, y) = CIMAGEINT_MAX;
             }
         }
     }
 }
+
 
 //------------------------------------------------------------------------------
 //! Detect a line in the image
@@ -130,7 +134,7 @@ void CRegionDetection::createImageGray( QImage *imageIn, CImageInt *imageOut)
 //!
 //! @return _
 //------------------------------------------------------------------------------
-void CRegionDetection::computeLine( void)
+void CRegionDetection::computeLine(void)
 {
     CImageInt *imageVote = NULL;
     int        aMin      = -m_imageOrigin->height();
@@ -141,24 +145,24 @@ void CRegionDetection::computeLine( void)
     int        aWin;
     int        bWin;
 
-    imageVote = new CImageInt( aMax-aMin+1, bMax-bMin+1);
+    imageVote = new CImageInt(aMax - aMin + 1, bMax - bMin + 1);
 
-    for ( int x = 0 ; x < m_imageOrigin->width() ; x++ )
+    for (int x = 0; x < m_imageOrigin->width(); x++)
     {
-        for ( int y = 0 ; y < m_imageOrigin->height() ; y++ )
+        for (int y = 0; y < m_imageOrigin->height(); y++)
         {
-            for ( int a = aMin ; a <= aMax ; a++ )
+            for (int a = aMin; a <= aMax; a++)
             {
-                (*imageVote)(a-aMin, y - a * x - bMin)++;
+                (*imageVote)(a - aMin, y - a * x - bMin)++;
             }
         }
     }
 
-    for ( int a = aMin ; a <= aMax ; a++ )
+    for (int a = aMin; a <= aMax; a++)
     {
-        for ( int b = bMin ; b <= bMax ; b++ )
+        for (int b = bMin; b <= bMax; b++)
         {
-            if ( (*imageVote)( a-aMin, b-bMin) > noVote )
+            if ((*imageVote)(a - aMin, b - bMin) > noVote)
             {
                 aWin = a;
                 bWin = b;
@@ -166,10 +170,11 @@ void CRegionDetection::computeLine( void)
         }
     }
 
-    CImage2QImage( imageVote, m_imageTreated);
+    CImage2QImage(imageVote, m_imageTreated);
 
     delete imageVote;
 }
+
 
 //------------------------------------------------------------------------------
 //! Convert a CImageInt to a QImage
@@ -179,18 +184,18 @@ void CRegionDetection::computeLine( void)
 //!
 //! @return _
 //------------------------------------------------------------------------------
-void CRegionDetection::CImage2QImage( CImageInt *imageIn, QImage *imageOut)
+void CRegionDetection::CImage2QImage(CImageInt *imageIn, QImage *imageOut)
 {
     int GOut;
 
-    if ( imageIn && imageOut )
+    if (imageIn && imageOut)
     {
-        for ( int xOut = 0 ; xOut < imageOut->width() ; xOut++ )
+        for (int xOut = 0; xOut < imageOut->width(); xOut++)
         {
-            for ( int yOut = 0 ; yOut <  imageOut->height() ; yOut++ )
+            for (int yOut = 0; yOut < imageOut->height(); yOut++)
             {
-                GOut = imageIn->get( xOut, yOut);
-                imageOut->setPixel( xOut, yOut, qRgb( GOut, GOut, GOut));
+                GOut = imageIn->get(xOut, yOut);
+                imageOut->setPixel(xOut, yOut, qRgb(GOut, GOut, GOut));
             }
         }
     }

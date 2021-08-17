@@ -12,6 +12,7 @@
 // Include(s) :
 
 #include <QImage>
+
 #include "../../Commun/Image/cimage.h"
 
 
@@ -20,14 +21,14 @@
 
 class CSampling
 {
-public :
-    CSampling( QImage *imageIn);
-    ~CSampling( void);
+public:
+    CSampling(QImage *imageIn);
+    ~CSampling(void);
 
-    QImage *getImageTreated( void);
-    void    computeFourierTransform( void);
-    
-private :
+    QImage *getImageTreated(void);
+    void    computeFourierTransform(void);
+
+private:
     QImage *m_imageOrigin;
     QImage *m_imageTreated;
 };

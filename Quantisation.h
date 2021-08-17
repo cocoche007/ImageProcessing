@@ -19,15 +19,15 @@
 
 class CQuantisation
 {
-public :
-    CQuantisation( QImage *imageIn);
+public:
+    CQuantisation(QImage *imageIn);
     ~CQuantisation();
 
-    QImage *getImageTreated( void);
-    void    computeGrayQuantisation( int quantisationLevel);
-    void    computeRGBQuantisation( int quantisationLevel);
-    
-private :
+    QImage *getImageTreated(void);
+    void    computeGrayQuantisation(int quantisationLevel);
+    void    computeRGBQuantisation(int quantisationLevel);
+
+private:
     QImage *m_imageOrigin;
     QImage *m_imageTreated;
 };

@@ -19,16 +19,16 @@
 
 class CGeometricTransformation
 {
-public :
-    CGeometricTransformation( QImage *imageIn);
+public:
+    CGeometricTransformation(QImage *imageIn);
     ~CGeometricTransformation();
 
-    QImage *getImageTreated( void);
-    void    computeRotation( int rotationAngle);
-    void    computeScale( int scaleFactor);
-    void    computeShear( int shearFactorX, int shearFactorY);
+    QImage *getImageTreated(void);
+    void    computeRotation(int rotationAngle);
+    void    computeScale(int scaleFactor);
+    void    computeShear(int shearFactorX, int shearFactorY);
 
-private :
+private:
     QImage *m_imageOrigin;
     QImage *m_imageTreated;
 };

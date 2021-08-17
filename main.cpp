@@ -9,7 +9,9 @@
 // Include(s) :
 
 #include <QApplication>
+
 #include "MainWindow.h"
+
 
 //------------------------------------------------------------------------------
 //! Application start point
@@ -20,13 +22,13 @@
 //! @return 0 if OK
 //! @return <>0 otherwise
 //------------------------------------------------------------------------------
-int main( int argc, char *argv[])
+int main(int argc, char *argv[])
 {
-    QApplication application( argc, argv);
+    QApplication application(argc, argv);
     MainWindow   mainWindow;
 
-    mainWindow.move( 0, 0);
+    mainWindow.move(0, 0);
     mainWindow.show();
-    
+
     return application.exec();
 }

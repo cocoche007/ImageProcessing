@@ -19,16 +19,16 @@
 
 class CColorModel
 {
-public :
-    CColorModel( QImage *imageIn);
+public:
+    CColorModel(QImage *imageIn);
     ~CColorModel();
 
-    QImage *getImageTreated( void);
-    void    computeComponentY( void);
-    void    computeComponentU( void);
-    void    computeComponentV( void);
+    QImage *getImageTreated(void);
+    void    computeComponentY(void);
+    void    computeComponentU(void);
+    void    computeComponentV(void);
 
-private :
+private:
     QImage *m_imageOrigin;
     QImage *m_imageTreated;
 };
