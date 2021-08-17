@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 //! @file Quantisation.h
-//! @brief Header du fichier Quantisation.cpp
+//! @brief Header file of the CQuantisation class
 //! @author Fabrice Cochet
 //! @version 1.0
 //------------------------------------------------------------------------------

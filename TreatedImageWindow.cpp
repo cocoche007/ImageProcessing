@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 //! @file TreatedImageWindow.cpp
-//! @brief Fichier où la classe CTreatedImageWindow est définie
+//! @brief Definition file of the CTreatedImageWindow class
 //! @author Fabrice Cochet
 //! @version 1.0
 //------------------------------------------------------------------------------
@@ -13,16 +13,16 @@
 
 
 //------------------------------------------------------------------------------
-// Fonction(s) Publique(s) :
+// Public Method(s):
 
 //------------------------------------------------------------------------------
-//! Constructeur d'objet CTreatedImageWindow pour une image donnée
+//! CTreatedImageWindow constructor for a given image
 //!
-//! @param type : Le type de traitement
-//! @param imageIn : L'image d'entrée
-//! @param parent : Le widget parent
+//! @param type The treatment type
+//! @param imageIn The input image
+//! @param parent The parent widget
 //!
-//! @return L'objet créé
+//! @return The created object
 //------------------------------------------------------------------------------
 CTreatedImageWindow::CTreatedImageWindow( int type, QImage *imageIn, QWidget *parent) :
     QWidget( parent)
@@ -101,11 +101,11 @@ CTreatedImageWindow::CTreatedImageWindow( int type, QImage *imageIn, QWidget *pa
             QMessageBox::critical( this, tr( ""), tr( "Veuillez ouvrir une image"));
     }
     else
-        QMessageBox::critical( this, tr( ""), tr( "Erreur d'allocation mémoire"));
+        QMessageBox::critical( this, tr( ""), tr( "Erreur d'allocation mÃ©moire"));
 }
 
 //------------------------------------------------------------------------------
-//! Affichage d'entrée
+//! Display the treated image
 //!
 //! @param _
 //!
@@ -245,7 +245,7 @@ void CTreatedImageWindow::display( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la composante Y de l'image
+//! Display the Y part of the image
 //!
 //! @param _
 //!
@@ -263,7 +263,7 @@ void CTreatedImageWindow::displayComponentY( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la composante U de l'image
+//! Display the U part of the image
 //!
 //! @param _
 //!
@@ -281,7 +281,7 @@ void CTreatedImageWindow::displayComponentU( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la composante V de l'image
+//! Display the V part of the image
 //!
 //! @param _
 //!
@@ -299,7 +299,7 @@ void CTreatedImageWindow::displayComponentV( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la quantification en niveau de gris de l'image
+//! Display the grayscale quantisation of the image
 //!
 //! @param _
 //!
@@ -317,7 +317,7 @@ void CTreatedImageWindow::displayQuantisationGray( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la quantification en couleur de l'image
+//! Display the colored quantisation of the image
 //!
 //! @param _
 //!
@@ -335,7 +335,7 @@ void CTreatedImageWindow::displayQuantisationRGB( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la Transformée de Fourier de l'image
+//! Display the Fourier Transform of the image
 //!
 //! @param _
 //!
@@ -348,12 +348,12 @@ void CTreatedImageWindow::displayFourierTransform( void)
         m_sampling->computeFourierTransform();
 
         m_labelImage->setPixmap( QPixmap::fromImage( *m_sampling->getImageTreated()));
-        setWindowTitle( tr( "Transformée de Fourier"));
+        setWindowTitle( tr( "TransformÃ©e de Fourier"));
     }
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la rotation de l'image
+//! Display the rotated image
 //!
 //! @param _
 //!
@@ -371,7 +371,7 @@ void CTreatedImageWindow::displayRotation( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de l'homothétie de l'image
+//! Display the image after a homothetie
 //!
 //! @param _
 //!
@@ -384,12 +384,12 @@ void CTreatedImageWindow::displayScale( void)
         m_geometricTransformation->computeScale( m_scaleFactor);
 
         m_labelImage->setPixmap( QPixmap::fromImage( *m_geometricTransformation->getImageTreated()));
-        setWindowTitle( tr( "Homothétie"));
+        setWindowTitle( tr( "HomothÃ©tie"));
     }
 }
 
 //------------------------------------------------------------------------------
-//! Affichage du cisaillement de l'image
+//! Display the image after a shear
 //!
 //! @param _
 //!
@@ -407,7 +407,7 @@ void CTreatedImageWindow::displayShear( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la détection de contours naïve de l'image
+//! Display the image after a naive edge detection
 //!
 //! @param _
 //!
@@ -420,12 +420,12 @@ void CTreatedImageWindow::displayEdgeDetectionSimple( void)
         m_edgeDetection->computeEdgeDetection( EDGE_DETECTION_SIMPLE, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap( QPixmap::fromImage( *m_edgeDetection->getImageTreated()));
-        setWindowTitle( tr( "Détection Contours Naïf"));
+        setWindowTitle( tr( "DÃ©tection Contours NaÃ¯f"));
     }
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la détection de contours (Roberts) de l'image
+//! Display the image after an edge detection (Roberts)
 //!
 //! @param _
 //!
@@ -438,12 +438,12 @@ void CTreatedImageWindow::displayEdgeDetectionRoberts( void)
         m_edgeDetection->computeEdgeDetection( EDGE_DETECTION_ROBERTS, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap( QPixmap::fromImage( *m_edgeDetection->getImageTreated()));
-        setWindowTitle( tr( "Détection Contours Roberts"));
+        setWindowTitle( tr( "DÃ©tection Contours Roberts"));
     }
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la détection de contours (Sobel) de l'image
+//! Display the image after an edge detection (Sobel)
 //!
 //! @param _
 //!
@@ -456,12 +456,12 @@ void CTreatedImageWindow::displayEdgeDetectionSobel( void)
         m_edgeDetection->computeEdgeDetection( EDGE_DETECTION_SOBEL, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap( QPixmap::fromImage( *m_edgeDetection->getImageTreated()));
-        setWindowTitle( tr( "Détection Contours Sobel"));
+        setWindowTitle( tr( "DÃ©tection Contours Sobel"));
     }
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la détection de contours (Prewitt) de l'image
+//! Display the image after an edge detection (Prewitt)
 //!
 //! @param _
 //!
@@ -474,12 +474,12 @@ void CTreatedImageWindow::displayEdgeDetectionPrewitt( void)
         m_edgeDetection->computeEdgeDetection( EDGE_DETECTION_PREWITT, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap( QPixmap::fromImage( *m_edgeDetection->getImageTreated()));
-        setWindowTitle( tr( "Détection Contours Prewitt"));
+        setWindowTitle( tr( "DÃ©tection Contours Prewitt"));
     }
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la détection de contours (Kirsch) de l'image
+//! Display the image after an edge detection (Kirsch)
 //!
 //! @param _
 //!
@@ -492,13 +492,12 @@ void CTreatedImageWindow::displayEdgeDetectionKirsch( void)
         m_edgeDetection->computeEdgeDetection( EDGE_DETECTION_KIRSCH, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap( QPixmap::fromImage( *m_edgeDetection->getImageTreated()));
-        setWindowTitle( tr( "Détection Contours Kirsch"));
+        setWindowTitle( tr( "DÃ©tection Contours Kirsch"));
     }
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la détection de contours (Laplacien Connexité 4)
-//! de l'image
+//! Display the image after an edge detection (Laplacian with connectivity 4)
 //!
 //! @param _
 //!
@@ -511,13 +510,12 @@ void CTreatedImageWindow::displayEdgeDetectionLaplacianConnexity4( void)
         m_edgeDetection->computeEdgeDetection( EDGE_DETECTION_LAPLACIAN_CONNEXITY_4, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap( QPixmap::fromImage( *m_edgeDetection->getImageTreated()));
-        setWindowTitle( tr( "Détection Contours Laplacian Connexité 4"));
+        setWindowTitle( tr( "DÃ©tection Contours Laplacian ConnexitÃ© 4"));
     }
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la détection de contours (Laplacien Connexité 8)
-//! de l'image
+//! Display the image after an edge detection (Laplacian with connectivity 8)
 //!
 //! @param _
 //!
@@ -530,12 +528,12 @@ void CTreatedImageWindow::displayEdgeDetectionLaplacianConnexity8( void)
         m_edgeDetection->computeEdgeDetection( EDGE_DETECTION_LAPLACIAN_CONNEXITY_8, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap( QPixmap::fromImage( *m_edgeDetection->getImageTreated()));
-        setWindowTitle( tr( "Détection Contours Laplacian Connexité 8"));
+        setWindowTitle( tr( "DÃ©tection Contours Laplacian ConnexitÃ© 8"));
     }
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la détection de contours (Laplacien DOG) de l'image
+//! Display the image after an edge detection (Laplacian DOG)
 //!
 //! @param _
 //!
@@ -548,13 +546,12 @@ void CTreatedImageWindow::displayEdgeDetectionLaplacianDOG( void)
         m_edgeDetection->computeEdgeDetection( EDGE_DETECTION_LAPLACIAN_DOG, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap( QPixmap::fromImage( *m_edgeDetection->getImageTreated()));
-        setWindowTitle( tr( "Détection Contours Laplacian DOG"));
+        setWindowTitle( tr( "DÃ©tection Contours Laplacian DOG"));
     }
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la détection de contours (Deriche Lissage)
-//! de l'image
+//! Display the image after an edge detection (Deriche smoothing filter)
 //!
 //! @param _
 //!
@@ -568,13 +565,12 @@ void CTreatedImageWindow::displayEdgeDetectionDericheSmooth( void)
         m_edgeDetection->computeEdgeDetection( EDGE_DETECTION_DERICHE_SMOOTH, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap( QPixmap::fromImage( *m_edgeDetection->getImageTreated()));
-        setWindowTitle( tr( "Détection Contours Deriche Smooth"));
+        setWindowTitle( tr( "DÃ©tection Contours Deriche Smooth"));
     }
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la détection de contours (Deriche Dérivée)
-//! de l'image
+//! Display the image after an edge detection (Deriche derivative)
 //!
 //! @param _
 //!
@@ -588,13 +584,12 @@ void CTreatedImageWindow::displayEdgeDetectionDericheDerivative( void)
         m_edgeDetection->computeEdgeDetection( EDGE_DETECTION_DERICHE_DERIVATIVE, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap( QPixmap::fromImage( *m_edgeDetection->getImageTreated()));
-        setWindowTitle( tr( "Détection Contours Deriche Dérivée"));
+        setWindowTitle( tr( "DÃ©tection Contours Deriche DÃ©rivÃ©e"));
     }
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la détection de contours (Deriche Laplacien)
-//! de l'image
+//! Display the image after an edge detection (Deriche Laplacian)
 //!
 //! @param _
 //!
@@ -608,12 +603,12 @@ void CTreatedImageWindow::displayEdgeDetectionDericheLaplacian( void)
         m_edgeDetection->computeEdgeDetection( EDGE_DETECTION_DERICHE_LAPLACIAN, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap( QPixmap::fromImage( *m_edgeDetection->getImageTreated()));
-        setWindowTitle( tr( "Détection Contours Deriche Laplacian"));
+        setWindowTitle( tr( "DÃ©tection Contours Deriche Laplacian"));
     }
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la dilatation de l'image
+//! Display the dilated image
 //!
 //! @param _
 //!
@@ -631,7 +626,7 @@ void CTreatedImageWindow::displayOpMorphoMathsDilation( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de l'érosion de l'image
+//! Display the eroded image
 //!
 //! @param _
 //!
@@ -649,7 +644,7 @@ void CTreatedImageWindow::displayOpMorphoMathsErosion( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de l'ouverture de l'image
+//! Display the "opened" image
 //!
 //! @param _
 //!
@@ -667,7 +662,7 @@ void CTreatedImageWindow::displayOpMorphoMathsOpening( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la fermeture de l'image
+//! Display the "closed" image
 //!
 //! @param _
 //!
@@ -685,7 +680,7 @@ void CTreatedImageWindow::displayOpMorphoMathsClosing( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage du contour intérieur de l'image
+//! Display the interior gradient of the image
 //!
 //! @param _
 //!
@@ -698,12 +693,12 @@ void CTreatedImageWindow::displayOpMorphoMathsInteriorGradient( void)
         m_opMorphoMaths->computeOpMorphoMaths( OPMORPHOMATHS_INTERIOR_GRADIENT, m_opMorphoMathsDimension);
 
         m_labelImage->setPixmap( QPixmap::fromImage( *m_opMorphoMaths->getImageTreated()));
-        setWindowTitle( tr( "Contour intérieur"));
+        setWindowTitle( tr( "Contour intÃ©rieur"));
     }
 }
 
 //------------------------------------------------------------------------------
-//! Affichage du contour extérieur de l'image
+//! Display the exterior gradient of the image
 //!
 //! @param _
 //!
@@ -716,12 +711,12 @@ void CTreatedImageWindow::displayOpMorphoMathsExteriorGradient( void)
         m_opMorphoMaths->computeOpMorphoMaths( OPMORPHOMATHS_EXTERIOR_GRADIENT, m_opMorphoMathsDimension);
 
         m_labelImage->setPixmap( QPixmap::fromImage( *m_opMorphoMaths->getImageTreated()));
-        setWindowTitle( tr( "Contour extérieur"));
+        setWindowTitle( tr( "Contour extÃ©rieur"));
     }
 }
 
 //------------------------------------------------------------------------------
-//! Affichage du gradient morphologique de l'image
+//! Display the morphological gradient of the image
 //!
 //! @param _
 //!
@@ -739,7 +734,7 @@ void CTreatedImageWindow::displayOpMorphoMathsMorphologicalGradient( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage du "Tout ou rien" de l'image
+//! Display the "hit or miss" of the image
 //!
 //! @param _
 //!
@@ -757,7 +752,7 @@ void CTreatedImageWindow::displayOpMorphoMathsHitOrMiss( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de l'amincissement de l'image
+//! Display the image after a thinning transformation
 //!
 //! @param _
 //!
@@ -775,7 +770,7 @@ void CTreatedImageWindow::displayOpMorphoMathsThinning( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la squelettisation de l'image
+//! Display the image after a skeletonization transformation
 //!
 //! @param _
 //!
@@ -793,7 +788,7 @@ void CTreatedImageWindow::displayOpMorphoMathsSkeletonizing( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la détection d'une droite de l'image
+//! Display the image after a line detection inside
 //!
 //! @param _
 //!
@@ -806,15 +801,15 @@ void CTreatedImageWindow::displayRegionDetectionLine( void)
         m_regionDetection->computeDetectionRegion( DETECTION_REGION_LINE);
 
         m_labelImage->setPixmap( QPixmap::fromImage( *m_regionDetection->getImageTreated()));
-        setWindowTitle( tr( "Détection Droite"));
+        setWindowTitle( tr( "DÃ©tection Droite"));
     }
 }
 
 //------------------------------------------------------------------------------
-// Fonction Privée(s) :
+// Private Method(s):
 
 //------------------------------------------------------------------------------
-//! Initialisation du traitement "Modèle de couleur"
+//! Initialization of the "Color Model" treatment
 //!
 //! @param _
 //!
@@ -841,7 +836,7 @@ bool CTreatedImageWindow::initColorModel( void)
 }
 
 //------------------------------------------------------------------------------
-//! Initialisation du traitement "Quantification"
+//! Initialization of the "Quantisation" treatment
 //!
 //! @param _
 //!
@@ -881,7 +876,7 @@ bool CTreatedImageWindow::initQuantisation( void)
 }
 
 //------------------------------------------------------------------------------
-//! Initialisation du traitement "Echantillonnage"
+//! Initialization of the "Sampling" treatment
 //!
 //! @param _
 //!
@@ -908,7 +903,7 @@ bool CTreatedImageWindow::initSampling( void)
 }
 
 //------------------------------------------------------------------------------
-//! Initialisation du traitement "Transformation Géométrique"
+//! Initialization of the "Geometric Transformation" treatment
 //!
 //! @param _
 //!
@@ -950,7 +945,7 @@ bool CTreatedImageWindow::initGeometricTransformation( void)
             case PROCESSING_GEOMETRIC_TRANSFORMATION_SCALE :
                 m_nParameters  = 1;
                 m_scaleFactor = 100;
-                m_parameterLabel1->setText( tr( "Facteur Homothétie :"));
+                m_parameterLabel1->setText( tr( "Facteur HomothÃ©tie :"));
                 m_parameterValue1->setRange( 1, 200);
                 m_parameterValue1->setValue( m_scaleFactor);
 
@@ -999,7 +994,7 @@ bool CTreatedImageWindow::initGeometricTransformation( void)
 }
 
 //------------------------------------------------------------------------------
-//! Initialisation du traitement "Détection de contours"
+//! Initialization of the "Edge Detection" treatment
 //!
 //! @param _
 //!
@@ -1095,7 +1090,7 @@ bool CTreatedImageWindow::initEdgeDetection( void)
 }
 
 //------------------------------------------------------------------------------
-//! Initialisation du traitement "Opérateur Morpho-Mathématiques"
+//! Initialization of the "Morpho Mathematics" treatment
 //!
 //! @param _
 //!
@@ -1138,7 +1133,7 @@ bool CTreatedImageWindow::initOpMorphoMaths( void)
 }
 
 //------------------------------------------------------------------------------
-//! Initialisation du traitement "Détection de régions"
+//! Initialization of the "Region Detection" treatment
 //!
 //! @param _
 //!
@@ -1166,12 +1161,12 @@ bool CTreatedImageWindow::initRegionDetection( void)
 
 
 //------------------------------------------------------------------------------
-//  Fonction(s) Publique(s) Slot :
+// Public Slot Method(s):
 
 //------------------------------------------------------------------------------
-//! Mise à jour du niveau de quantification (Traitement "Quantification")
+//! Update the quantisation level ("Quantification" treatment)
 //!
-//! @param level : Le niveau de quantification
+//! @param level The quantisation level
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -1183,9 +1178,9 @@ void CTreatedImageWindow::updateQuantisationLevel( int level)
 }
 
 //------------------------------------------------------------------------------
-//! Mise à jour de l'angle de rotation (Traitement "Transformation Géométrique")
+//! Update the rotation angle ("Geometric Transformation" treatment)
 //!
-//! @param angle : L'angle de rotation
+//! @param angle The rotation angle
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -1197,9 +1192,9 @@ void CTreatedImageWindow::updateAngleRotation( int angle)
 }
 
 //------------------------------------------------------------------------------
-//! Mise à jour du facteur d'homothétie (Traitement "Transformation Géométrique")
+//! Update the homothetie factor ("Geometric Transformation" treatment)
 //!
-//! @param factor : Le facteur d'homothétie
+//! @param factor The homothetie factor
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -1211,10 +1206,9 @@ void CTreatedImageWindow::updateScaleFactor( int factor)
 }
 
 //------------------------------------------------------------------------------
-//! Mise à jour du facteur de cisaillement en X (Traitement
-//! "Transformation Géométrique")
+//! Update the shear factor by X ("Geometric Transformation" treatment)
 //!
-//! @param factor : Le facteur de cisaillement en X
+//! @param factor The shear factor by X
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -1226,10 +1220,9 @@ void CTreatedImageWindow::updateShearFactorX( int factor)
 }
 
 //------------------------------------------------------------------------------
-//! Mise à jour du facteur de cisaillement en Y (Traitement
-//! "Transformation Géométrique")
+//! Update the shear factor by Y ("Geometric Transformation" treatment)
 //!
-//! @param factor : Le facteur de cisaillement en Y
+//! @param factor The shear factor by Y
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -1241,10 +1234,9 @@ void CTreatedImageWindow::updateShearFactorY( int factor)
 }
 
 //------------------------------------------------------------------------------
-//! Mise à jour du facteur de cisaillement en X (Traitement
-//! "Transformation Géométrique")
+//! Update the monochrom flag threshold ("Edge Detection" treatment)
 //!
-//! @param isMonochrom : Le facteur de cisaillement en X
+//! @param isMonochrom The monochrom flag
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -1256,9 +1248,9 @@ void CTreatedImageWindow::updateIsMonochrome( int isMonochrom)
 }
 
 //------------------------------------------------------------------------------
-//! Mise à jour du seuil minimum (Traitement "Détection de contours")
+//! Update the minimum threshold ("Edge Detection" treatment)
 //!
-//! @param threshold : Le seuil
+//! @param threshold The minimum threshold
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -1274,9 +1266,9 @@ void CTreatedImageWindow::updateThresholdMin( int threshold)
 }
 
 //------------------------------------------------------------------------------
-//! Mise à jour du seuil maximum (Traitement "Détection de contours")
+//! Update the maximum threshold ("Edge Detection" treatment)
 //!
-//! @param threshold : Le seuil
+//! @param threshold The maximum threshold
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -1292,9 +1284,9 @@ void CTreatedImageWindow::updateThresholdMax( int threshold)
 }
 
 //------------------------------------------------------------------------------
-//! Mise à jour du alpha de Deriche (Traitement "Détection de contours")
+//! Update the alpha value for Deriche ("Edge Detection" treatment)
 //!
-//! @param alpha : La valeur alpha
+//! @param alpha The alpha value
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -1306,9 +1298,9 @@ void CTreatedImageWindow::updateAlphaDeriche( int alpha)
 }
 
 //------------------------------------------------------------------------------
-//! Mise à jour de la dimension (Traitement "Opérateur Morpho-Mathématique")
+//! Update the dimension ("Morpho Mathematics" treatment)
 //!
-//! @param v : La dimension
+//! @param dimension The dimension
 //!
 //! @return _
 //------------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 //! @file Quantisation.cpp
-//! @brief Fichier où la classe CQuantisation est définie
+//! @brief Definition file of the CQuantisation class
 //! @author Fabrice Cochet
 //! @version 1.0
 //------------------------------------------------------------------------------
@@ -12,14 +12,14 @@
 
 
 //------------------------------------------------------------------------------
-// Fonction(s) Publique(s) :
+// Public Method(s):
 
 //------------------------------------------------------------------------------
-//! Constructeur d'objet CQuantisation pour une image donnée
+//! CQuantisation constructor for a given image
 //!
-//! @param imageIn : L'image d'entrée
+//! @param imageIn The input image
 //!
-//! @return L'objet créé
+//! @return The created object
 //------------------------------------------------------------------------------
 CQuantisation::CQuantisation( QImage *imageIn)
 {
@@ -28,7 +28,7 @@ CQuantisation::CQuantisation( QImage *imageIn)
 }
 
 //------------------------------------------------------------------------------
-//! Destructeur
+//! Destructor
 //!
 //! @param _
 //!
@@ -40,11 +40,11 @@ CQuantisation::~CQuantisation( void)
 }
 
 //------------------------------------------------------------------------------
-//! Retourne l'image traitée
+//! Get the treated image
 //!
 //! @param _
 //!
-//! @return Le pointeur sur l'image traitée
+//! @return A pointer on the treated image
 //------------------------------------------------------------------------------
 QImage* CQuantisation::getImageTreated( void)
 {
@@ -52,9 +52,9 @@ QImage* CQuantisation::getImageTreated( void)
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de l'image quantifiée en niveau de gris
+//! Compute the grayscale quantisated image
 //!
-//! @param quantisationLevel : Le niveau de quantification
+//! @param quantisationLevel The quantisation level
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -89,9 +89,9 @@ void CQuantisation::computeGrayQuantisation( int quantisationLevel)
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de l'image quantifiée en couleur
+//! Compute the colored quantisated image
 //!
-//! @param quantisationLevel : Le niveau de quantification
+//! @param quantisationLevel The quantisation level
 //!
 //! @return _
 //------------------------------------------------------------------------------

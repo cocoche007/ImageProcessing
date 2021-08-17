@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 //! @file OpMorphoMaths.cpp
-//! @brief Fichier où la classe COpMorphoMaths est définie
+//! @brief Definition file of the COpMorphoMaths class
 //! @author Fabrice Cochet
 //! @version 1.0
 //------------------------------------------------------------------------------
@@ -12,14 +12,14 @@
 
 
 //------------------------------------------------------------------------------
-// Fonction(s) Publique(s) :
+// Public Method(s):
 
 //------------------------------------------------------------------------------
-//! Constructeur d'objet COpMorphoMaths pour une image donnée
+//! COpMorphoMaths constructor for a given image
 //!
-//! @param imageIn : L'image d'entrée
+//! @param imageIn The input image
 //!
-//! @return L'objet créé
+//! @return The created object
 //------------------------------------------------------------------------------
 COpMorphoMaths::COpMorphoMaths( QImage *imageIn)
 {
@@ -41,7 +41,7 @@ COpMorphoMaths::COpMorphoMaths( QImage *imageIn)
 }
 
 //------------------------------------------------------------------------------
-//! Destructeur
+//! Destructor
 //!
 //! @param _
 //!
@@ -55,11 +55,11 @@ COpMorphoMaths::~COpMorphoMaths()
 }
 
 //------------------------------------------------------------------------------
-//! Retourne l'image traitée
+//! Get the treated image
 //!
 //! @param _
 //!
-//! @return Le pointeur sur l'image traitée
+//! @return A pointer on the treated image
 //------------------------------------------------------------------------------
 QImage* COpMorphoMaths::getImageTreated( void)
 {
@@ -67,11 +67,11 @@ QImage* COpMorphoMaths::getImageTreated( void)
 }
 
 //------------------------------------------------------------------------------
-//! Retourne la dimension du neighborhood
+//! Get the dimension of the neighborhood
 //!
 //! @param _
 //!
-//! @return Le pointeur sur l'image traitée
+//! @return The dimension
 //------------------------------------------------------------------------------
 int COpMorphoMaths::getDimension( void)
 {
@@ -79,11 +79,11 @@ int COpMorphoMaths::getDimension( void)
 }
 
 //------------------------------------------------------------------------------
-//! Fonction d'entrée pour les opérations Morpho-Mathématiques
+//! Start method for the MorphoMaths operations
 //!
-//! @param operationType : Le type de l'opération
-//! @param dimension : La dimension du neighborhood
-//! @param neighborhoodType : Le type de neighborhood
+//! @param operationType The operation type
+//! @param dimension The neighborhood dimension
+//! @param neighborhoodType The neighborhood type
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -147,13 +147,13 @@ void COpMorphoMaths::computeOpMorphoMaths( OPMORPHOMATHS_TYPE operationType, int
 
 
 //------------------------------------------------------------------------------
-// Fonction(s) Privée(s) :
+// Private Method(s):
 
 //------------------------------------------------------------------------------
-//! Création d'une image en niveau de gris (binaire) pour une image donnée
+//! Create a grayscale image (binary) for a given image
 //!
-//! @param imageIn : L'image d'entrée
-//! @param imageOut : L'image de sortie
+//! @param imageIn The input image
+//! @param imageOut The output image
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -182,8 +182,8 @@ void COpMorphoMaths::createImageGray( QImage *imageIn, CImageInt *imageOut)
 }
 
 //------------------------------------------------------------------------------
-//! Initialisation du neighborhood en fonction du type renseignée par
-//! la fonction computeOpMorphoMaths
+//! Initialize the neighborhood depending on the type (see the
+//! computeOpMorphoMaths method)
 //!
 //! @param _
 //!
@@ -256,7 +256,7 @@ void COpMorphoMaths::initNeighborhood( void)
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de l'image dilatée
+//! Compute the dilated image
 //!
 //! @param _
 //!
@@ -273,7 +273,7 @@ void COpMorphoMaths::computeDilation( void)
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de l'image érodée
+//! Compute the eroded image
 //!
 //! @param _
 //!
@@ -290,7 +290,7 @@ void COpMorphoMaths::computeErosion( void)
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de l'ouverture de l'image
+//! Compute the "opened" image
 //!
 //! @param _
 //!
@@ -311,7 +311,7 @@ void COpMorphoMaths::computeOpening( void)
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de la fermeture de l'image
+//! Compute the "closed" image
 //!
 //! @param _
 //!
@@ -332,7 +332,7 @@ void COpMorphoMaths::computeClosing( void)
 }
 
 //------------------------------------------------------------------------------
-//! Calcul du gradient intérieur de l'image
+//! Compute the interior gradient of the image
 //!
 //! @param _
 //!
@@ -353,7 +353,7 @@ void COpMorphoMaths::computeInteriorGradient( void)
 }
 
 //------------------------------------------------------------------------------
-//! Calcul du gradient extérieur de l'image
+//! Compute the exterior gradient of the image
 //!
 //! @param _
 //!
@@ -374,7 +374,7 @@ void COpMorphoMaths::computeExteriorGradient( void)
 }
 
 //------------------------------------------------------------------------------
-//! Calcul du gradient morphologique de l'image
+//! Compute the morphological gradient of the image
 //!
 //! @param _
 //!
@@ -398,7 +398,7 @@ void COpMorphoMaths::computeMorphologicalGradient( void)
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de la transformée "Tout ou Rien" de l'image
+//! Compute the "hit or miss" transformation of the image
 //!
 //! @param _
 //!
@@ -434,7 +434,7 @@ void COpMorphoMaths::computeHitOrMiss( void)
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de l'image amincie
+//! Compute the thinness image
 //!
 //! @param _
 //!
@@ -523,7 +523,7 @@ bool COpMorphoMaths::computeThinning( void)
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de la squelettisation de l'image
+//! Compute the skeletonized image
 //!
 //! @param _
 //!
@@ -543,10 +543,10 @@ void COpMorphoMaths::computeSkeletonizing( void)
 }
 
 //------------------------------------------------------------------------------
-//! Conversion d'une image CImageInt en QImage
+//! Convert a CImageInt to a QImage
 //!
-//! @param imageIn : L'image d'entrée
-//! @param imageOut : L'image de sortie
+//! @param imageIn The input image
+//! @param imageOut The output image
 //!
 //! @return _
 //------------------------------------------------------------------------------

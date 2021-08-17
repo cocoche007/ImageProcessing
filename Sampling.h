@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 //! @file Sampling.h
-//! @brief Header du fichier Sampling.cpp
+//! @brief Header file of the CSampling class
 //! @author Fabrice Cochet
 //! @version 1.0
 //------------------------------------------------------------------------------

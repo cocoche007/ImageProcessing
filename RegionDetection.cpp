@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 //! @file RegionDetection.cpp
-//! @brief Fichier où la classe CRegionDetection est définie
+//! @brief Definition file of the CRegionDetection class
 //! @author Fabrice Cochet
 //! @version 1.0
 //------------------------------------------------------------------------------
@@ -12,14 +12,14 @@
 
 
 //------------------------------------------------------------------------------
-// Fonction(s) Publique(s) :
+// Public Method(s):
 
 //------------------------------------------------------------------------------
-//! Constructeur d'objet CRegionDetection pour une image donnée
+//! CRegionDetection constructor for a given image
 //!
-//! @param imageIn : L'image d'entrée
+//! @param imageIn The input image
 //!
-//! @return L'objet créé
+//! @return The created object
 //------------------------------------------------------------------------------
 CRegionDetection::CRegionDetection( QImage *imageIn)
 {
@@ -39,7 +39,7 @@ CRegionDetection::CRegionDetection( QImage *imageIn)
 }
 
 //------------------------------------------------------------------------------
-//! Destructeur
+//! Destructor
 //!
 //! @param _
 //!
@@ -52,11 +52,11 @@ CRegionDetection::~CRegionDetection( void)
 }
 
 //------------------------------------------------------------------------------
-//! Retourne l'image traitée
+//! Get the treated image
 //!
 //! @param _
 //!
-//! @return Le pointeur sur l'image traitée
+//! @return A pointer on the treated image
 //------------------------------------------------------------------------------
 QImage* CRegionDetection::getImageTreated( void)
 {
@@ -64,9 +64,9 @@ QImage* CRegionDetection::getImageTreated( void)
 }
 
 //------------------------------------------------------------------------------
-//! Fonction d'entrée pour les détections de région
+//! Entry point for the region detection
 //!
-//! @param typeDetectionRegion : Le type de la détection
+//! @param typeDetectionRegion The type of the region detection
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -89,13 +89,13 @@ void CRegionDetection::computeDetectionRegion( DETECTION_REGION_TYPE detectionRe
 
 
 //------------------------------------------------------------------------------
-// Fonction(s) Privée(s) :
+// Private Method(s):
 
 //------------------------------------------------------------------------------
-//! Création d'une image en niveau de gris (binaire) pour une image donnée
+//! Create a grayscale (binary) image for a given image
 //!
-//! @param imageIn : L'image d'entrée
-//! @param imageOut : L'image de sortie
+//! @param imageIn The input image
+//! @param imageOut The output image
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -124,7 +124,7 @@ void CRegionDetection::createImageGray( QImage *imageIn, CImageInt *imageOut)
 }
 
 //------------------------------------------------------------------------------
-//! Détection d'une droite
+//! Detect a line in the image
 //!
 //! @param _
 //!
@@ -172,10 +172,10 @@ void CRegionDetection::computeLine( void)
 }
 
 //------------------------------------------------------------------------------
-//! Conversion d'une image CImageInt en QImage
+//! Convert a CImageInt to a QImage
 //!
-//! @param imageIn : L'image d'entrée
-//! @param imageOut : L'image de sortie
+//! @param imageIn The input image
+//! @param imageOut The output image
 //!
 //! @return _
 //------------------------------------------------------------------------------

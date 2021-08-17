@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 //! @file GeometricTransformation.h
-//! @brief Header du fichier GeometricTransformation.cpp
+//! @brief Header file of the CGeometricTransformation class
 //! @author Fabrice Cochet
 //! @version 1.0
 //------------------------------------------------------------------------------

@@ -1,19 +1,19 @@
 //------------------------------------------------------------------------------
 //! @file EdgeDetection.cpp
-//! @brief Fichier où la classe CEdgeDetection est définie
+//! @brief Definition file of the CEdgeDetection class
 //! @author Fabrice Cochet
 //! @version 1.0
 //------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
-// Include(s) :
+// Include(s):
 
 #include <qmath.h>
 #include "EdgeDetection.h"
 
 
 //------------------------------------------------------------------------------
-// Variable(s) Constante(s) :
+// Constant Variable(s):
 
 const int sobelMatrix1[3][3]            = { { 1,  2,  1}, { 0, 0,  0}, {-1, -2, -1} };
 const int sobelMatrix2[3][3]            = { {-1,  0,  1}, {-2, 0,  2}, {-1,  0,  1} };
@@ -35,14 +35,14 @@ const int noyauGaussien3x3[3][3]        = { { 1,  1,  1}, { 1, 8,  1}, { 1,  1, 
 
 
 //------------------------------------------------------------------------------
-// Fonction(s) Publique(s) :
+// Public Method(s):
 
 //------------------------------------------------------------------------------
-//! Constructeur d'objet CEdgeDetection pour une image donnée
+//! CEdgeDetection constructor for a given image
 //!
-//! @param imageIn : L'image d'entrée
+//! @param imageIn The input image
 //!
-//! @return L'objet créé
+//! @return The created object
 //------------------------------------------------------------------------------
 CEdgeDetection::CEdgeDetection( QImage *imageIn)
 {
@@ -67,7 +67,7 @@ CEdgeDetection::CEdgeDetection( QImage *imageIn)
 }
 
 //------------------------------------------------------------------------------
-//! Destructeur
+//! Destructor
 //!
 //! @param _
 //!
@@ -81,11 +81,11 @@ CEdgeDetection::~CEdgeDetection()
 }
 
 //------------------------------------------------------------------------------
-//! Retourne l'image traitée
+//! Get the treated image
 //!
 //! @param _
 //!
-//! @return Le pointeur sur l'image traitée
+//! @return A pointer on the treated image
 //------------------------------------------------------------------------------
 QImage* CEdgeDetection::getImageTreated( void)
 {
@@ -93,7 +93,7 @@ QImage* CEdgeDetection::getImageTreated( void)
 }
 
 //------------------------------------------------------------------------------
-//! Retourne si le traitement est en monochrome ou non
+//! Get if the treatment is monochrome or not
 //!
 //! @param _
 //!
@@ -105,11 +105,11 @@ bool CEdgeDetection::isMonochrom( void)
 }
 
 //------------------------------------------------------------------------------
-//! Retourne le seuil minimum
+//! Get the minimum threshold
 //!
 //! @param _
 //!
-//! @return Le seuil minimum
+//! @return The minimum threshold
 //------------------------------------------------------------------------------
 int CEdgeDetection::getThresholdMin( void)
 {
@@ -117,11 +117,11 @@ int CEdgeDetection::getThresholdMin( void)
 }
 
 //------------------------------------------------------------------------------
-//! Retourne le seuil maximum
+//! Get the maximum threshold
 //!
 //! @param _
 //!
-//! @return Le seuil maximum
+//! @return The maximum threshold
 //------------------------------------------------------------------------------
 int CEdgeDetection::getThresholdMax( void)
 {
@@ -129,11 +129,11 @@ int CEdgeDetection::getThresholdMax( void)
 }
 
 //------------------------------------------------------------------------------
-//! Retourne la valeur alpha pour le lissage de Deriche
+//! Get the alpha value for the Deriche smoothing filter
 //!
 //! @param _
 //!
-//! @return La valeur alpha
+//! @return The alpha value
 //------------------------------------------------------------------------------
 float CEdgeDetection::getAlphaDeriche( void)
 {
@@ -141,9 +141,9 @@ float CEdgeDetection::getAlphaDeriche( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affecte le seuil minimum
+//! Set the minimum threshold
 //!
-//! @param Le seuil à affecter
+//! @param The minimum threshold to set
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -153,9 +153,9 @@ void CEdgeDetection::setThresholdMin( int threshold)
 }
 
 //------------------------------------------------------------------------------
-//! Affecte le seuil maximum
+//! Set the maximum threshold
 //!
-//! @param Le seuil à affecter
+//! @param The maximum threshold to set
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -165,9 +165,9 @@ void CEdgeDetection::setThresholdMax( int threshold)
 }
 
 //------------------------------------------------------------------------------
-//! Affecte la valeur alpha pour le lissage de Deriche
+//! Get the alpha value for the Deriche smoothing filter
 //!
-//! @param La valeur alpha à affecter
+//! @param The alpha value to set
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -181,12 +181,12 @@ void CEdgeDetection::setAlphaDeriche( float alpha)
 }
 
 //------------------------------------------------------------------------------
-//! Fonction d'entrée pour les détections de contour
+//! Input method for the the edge detection computation
 //!
-//! @param detectionType : Le type de détection
-//! @param thresholdMin : Le seuil minimum
-//! @param thresholdMax : Le seuil maximum
-//! @param isMonochrom : Indication de traitement monochrome ou non
+//! @param detectionType The detection type
+//! @param thresholdMin The minimum threshold
+//! @param thresholdMax The maximum threshold
+//! @param isMonochrom The monochrom treatment flag
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -259,13 +259,13 @@ void CEdgeDetection::computeEdgeDetection( int detectionType, int thresholdMin, 
 
 
 //------------------------------------------------------------------------------
-// Fonction(s) Privée(s) :
+// Private Method(s):
 
 //------------------------------------------------------------------------------
-//! Création d'une image en niveau de gris (binaire) pour une image donnée
+//! Create a binary grayscale image for a given image
 //!
-//! @param imageIn : L'image d'entrée
-//! @param imageOut : L'image de sortie
+//! @param imageIn The input image
+//! @param imageOut The output image
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -287,13 +287,13 @@ void CEdgeDetection::createImageGray( QImage *imageIn, CImageInt *imageOut)
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de la convolution en un point de l'image pour une matrice[3][3]
+//! Compute the convolution on a image point for a 3x3 matrix
 //!
-//! @param imageIn : L'image d'entrée
-//! @param x : La coordonnée x du point considérée
-//! @param y : La coordonnée y du point considérée
-//! @param matrix : La matrice de convolution
-//! @param quotient : Le quotient de "normalisation"
+//! @param imageIn The input image
+//! @param x The X coordinate of the given point
+//! @param y The Y coordinate of the given point
+//! @param matrix The convolution matrix
+//! @param quotient The "normalisation" ratio
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -321,16 +321,16 @@ int CEdgeDetection::convolution( CImageInt *imageIn, int x, int y, const int mat
 }
 
 //------------------------------------------------------------------------------
-//! Seuillage d'une image
+//! Perform a image thresholding
 //!
-//! @param imageIn : L'image d'entrée
-//! @param imageOut : L'image de sortie
-//! @param isMonochrom : Indication de traitement monochrome ou non
-//! @param thresholdMin : Le seuil minimum
-//! @param thresholdMax : Le seuil maximum
+//! @param imageIn The input image
+//! @param imageOut The output image
+//! @param isMonochrom The monochrom treatment flag
+//! @param thresholdMin The minimum threshold
+//! @param thresholdMax The maximum threshold
 //!
-//! @return true si OK
-//! @return false sinon
+//! @return true if OK
+//! @return false otherwise
 //------------------------------------------------------------------------------
 bool CEdgeDetection::thresholding( CImageInt *imageIn, QImage *imageOut, bool isMonochrom, int thresholdMin, int thresholdMax)
 {
@@ -377,10 +377,10 @@ bool CEdgeDetection::thresholding( CImageInt *imageIn, QImage *imageOut, bool is
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de détection de contour naïf
+//! Compute a naive edge detection
 //!
-//! @param imageIn : L'image d'entrée
-//! @param imageOut : L'image de sortie
+//! @param imageIn The input image
+//! @param imageOut The output image
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -408,10 +408,10 @@ void CEdgeDetection::computeEdgeDetectionSimple( CImageInt *imageIn, CImageInt *
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de détection de contour (Roberts)
+//! Compute an edge detection (Roberts)
 //!
-//! @param imageIn : L'image d'entrée
-//! @param imageOut : L'image de sortie
+//! @param imageIn The input image
+//! @param imageOut The output image
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -439,10 +439,10 @@ void CEdgeDetection::computeEdgeDetectionRoberts( CImageInt *imageIn, CImageInt 
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de détection de contour (Sobel)
+//! Compute an edge detection (Sobel)
 //!
-//! @param imageIn : L'image d'entrée
-//! @param imageOut : L'image de sortie
+//! @param imageIn The input image
+//! @param imageOut The output image
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -470,10 +470,10 @@ void CEdgeDetection::computeEdgeDetectionSobel( CImageInt *imageIn, CImageInt *i
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de détection de contour (Prewitt)
+//! Compute an edge detection (Prewitt)
 //!
-//! @param imageIn : L'image d'entrée
-//! @param imageOut : L'image de sortie
+//! @param imageIn The input image
+//! @param imageOut The output image
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -505,10 +505,10 @@ void CEdgeDetection::computeEdgeDetectionPrewitt( CImageInt *imageIn, CImageInt 
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de détection de contour (Kirsch)
+//! Compute an edge detection (Kirsch)
 //!
-//! @param imageIn : L'image d'entrée
-//! @param imageOut : L'image de sortie
+//! @param imageIn The input image
+//! @param imageOut The output image
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -548,10 +548,10 @@ void CEdgeDetection::computeEdgeDetectionKirsch( CImageInt *imageIn, CImageInt *
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de détection de contour (Laplacien Connexité 4)
+//! Compute an edge detection (Laplacian with connectivity 4)
 //!
-//! @param imageIn : L'image d'entrée
-//! @param imageOut : L'image de sortie
+//! @param imageIn The input image
+//! @param imageOut The output image
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -578,10 +578,10 @@ void CEdgeDetection::computeEdgeDetectionLaplacianConnexity4( CImageInt *imageIn
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de détection de contour (Laplacien Connexité 8)
+//! Compute an edge detection (Laplacian with connectivity 8)
 //!
-//! @param imageIn : L'image d'entrée
-//! @param imageOut : L'image de sortie
+//! @param imageIn The input image
+//! @param imageOut The output image
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -608,10 +608,10 @@ void CEdgeDetection::computeEdgeDetectionLaplacianConnexity8( CImageInt *imageIn
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de détection de contour (Laplacien DOG)
+//! Compute an edge detection (Laplacian DOG)
 //!
-//! @param imageIn : L'image d'entrée
-//! @param imageOut : L'image de sortie
+//! @param imageIn The input image
+//! @param imageOut The output image
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -636,10 +636,10 @@ void CEdgeDetection::computeEdgeDetectionLaplacianDOG( CImageInt *imageIn, CImag
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de lissage de Deriche
+//! Compute a Deriche smoothing filter
 //!
-//! @param imageIn : L'image d'entrée
-//! @param imageOut : L'image de sortie
+//! @param imageIn The input image
+//! @param imageOut The output image
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -721,10 +721,10 @@ void CEdgeDetection::computeEdgeDetectionDericheSmooth( CImageInt *imageIn, CIma
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de Deriche dérivée
+//! Compute a Deriche derivation
 //!
-//! @param imageIn : L'image d'entrée
-//! @param imageOut : L'image de sortie
+//! @param imageIn The input image
+//! @param imageOut The output image
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -753,7 +753,7 @@ void CEdgeDetection::computeEdgeDetectionDericheDerivative( CImageInt *imageIn, 
         {
             imageOut->setMax( 0);
 
-            // Calcul de l'image dérivée selon x
+            // Compute the derivated image by x
             if ( 1 + 2*m_alphaDeriche*qExp( -m_alphaDeriche) - qExp( -2*m_alphaDeriche) )
                 k = ((1 - qExp( -m_alphaDeriche))*(1 - qExp( -m_alphaDeriche))) / (1 + 2*m_alphaDeriche*qExp( -m_alphaDeriche) - qExp( -2*m_alphaDeriche));
             else
@@ -799,7 +799,7 @@ void CEdgeDetection::computeEdgeDetectionDericheDerivative( CImageInt *imageIn, 
                     (*imageDerivativeX)(x, y) = c1 * (imageY1->get( x, y) + imageY2->get( x, y));
             }
 
-            // Calcul de l'image dérivée selon y
+            // Compute the derivated image by y
             a1 = k;
             a2 = k * qExp( -m_alphaDeriche) * (m_alphaDeriche - 1);
             a3 = k * qExp( -m_alphaDeriche) * (m_alphaDeriche + 1);
@@ -862,10 +862,10 @@ void CEdgeDetection::computeEdgeDetectionDericheDerivative( CImageInt *imageIn, 
  }
 
 //------------------------------------------------------------------------------
-//! Calcul de lissage de Deriche Laplacien
+//! Compute a Deriche Laplacian smoothing filter
 //!
-//! @param imageIn : L'image d'entrée
-//! @param imageOut : L'image de sortie
+//! @param imageIn The input image
+//! @param imageOut The output image
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -895,7 +895,7 @@ void CEdgeDetection::computeEdgeDetectionDericheLaplacian( CImageInt *imageIn, C
         {
             imageOut->setMax( 0);
 
-            // Calcul de l'image Laplacien 1
+            // Compute the Laplacian 1 image
             if ( 2*m_alphaDeriche*qExp( -m_alphaDeriche) )
                 k = (1 - qExp( -2*m_alphaDeriche)) / (2*m_alphaDeriche*qExp( -m_alphaDeriche));
             else
@@ -941,7 +941,7 @@ void CEdgeDetection::computeEdgeDetectionDericheLaplacian( CImageInt *imageIn, C
                     (*imageLaplacian1)(x, y) = c1 * (imageY1->get( x, y) + imageY2->get( x, y));
             }
 
-            // Calcul de l'image Laplacien 2
+            // Compute de Laplacian 2 image
             /*
             a1 = 0;
             a2 = 1;

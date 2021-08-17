@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 //! @file MainWindow.cpp
-//! @brief Fichier où la classe MainWindow est définie
+//! @brief Definition file of the MainWindow class
 //! @author Fabrice Cochet
 //! @version 1.0
 //------------------------------------------------------------------------------
@@ -25,14 +25,14 @@
 
 
 //------------------------------------------------------------------------------
-// Fonction(s) Publique(s) :
+// Public Method(s):
 
 //------------------------------------------------------------------------------
-//! Constructeur d'objet MainWindow
+//! MainWindow constructor
 //!
-//! @param parent : Le widget parent
+//! @param parent The parent widget
 //!
-//! @return L'objet créé
+//! @return The created object
 //------------------------------------------------------------------------------
 MainWindow::MainWindow( QWidget *parent)
     : QMainWindow( parent)
@@ -42,10 +42,10 @@ MainWindow::MainWindow( QWidget *parent)
     QMenu       *menuColorModel                           = menuBar()->addMenu( tr( "&Modele"));
     QMenu       *menuQuantisation                         = menuBar()->addMenu( tr( "&Quantification"));
     QMenu       *menuSampling                             = menuBar()->addMenu( tr( "&Echantillonnage"));
-    QMenu       *menuGeometricTransformation              = menuBar()->addMenu( tr( "&Transfo Géo"));
-    QMenu       *menuEdgeDetection                        = menuBar()->addMenu( tr( "&Détection Contour"));
-    QMenu       *menuOpMorphoMaths                        = menuBar()->addMenu( tr( "&Op. Morphomathématiques"));
-    QMenu       *menuDetectionRegion                      = menuBar()->addMenu( tr( "&Détection Région"));
+    QMenu       *menuGeometricTransformation              = menuBar()->addMenu( tr( "&Transfo GÃ©o"));
+    QMenu       *menuEdgeDetection                        = menuBar()->addMenu( tr( "&DÃ©tection Contour"));
+    QMenu       *menuOpMorphoMaths                        = menuBar()->addMenu( tr( "&Op. MorphomathÃ©matiques"));
+    QMenu       *menuDetectionRegion                      = menuBar()->addMenu( tr( "&DÃ©tection RÃ©gion"));
     QMenu       *menuEdgeDetectionLaplacian               = NULL;
     QMenu       *menuEdgeDetectionDeriche                 = NULL;
     QAction     *actionOpen                               = new QAction( tr( "&Ouvrir"), this);
@@ -55,27 +55,27 @@ MainWindow::MainWindow( QWidget *parent)
     QAction     *actionDisplayV                           = new QAction( tr( "&V (YUV)"), this);
     QAction     *actionQuantisationGray                   = new QAction( tr( "&Niveau de gris"), this);
     QAction     *actionQuantisationRGB                    = new QAction( tr( "&Couleur"), this);
-    QAction     *actionFourierTransform                   = new QAction( tr( "&Transformée de Fourier"), this);
+    QAction     *actionFourierTransform                   = new QAction( tr( "&TransformÃ©e de Fourier"), this);
     QAction     *actionGeometricTransformationRotation    = new QAction( tr( "&Rotation"), this);
-    QAction     *actionGeometricTransformationScale       = new QAction( tr( "&Homothétie"), this);
+    QAction     *actionGeometricTransformationScale       = new QAction( tr( "&HomothÃ©tie"), this);
     QAction     *actionGeometricTransformationShear       = new QAction( tr( "&Cisaillement"), this);
-    QAction     *actionEdgeDetectionSimple                = new QAction( tr( "&Naïf"), this);
+    QAction     *actionEdgeDetectionSimple                = new QAction( tr( "&NaÃ¯f"), this);
     QAction     *actionEdgeDetectionRoberts               = new QAction( tr( "&Roberts"), this);
     QAction     *actionEdgeDetectionSobel                 = new QAction( tr( "&Sobel"), this);
     QAction     *actionEdgeDetectionPrewitt               = new QAction( tr( "&Prewitt"), this);
     QAction     *actionEdgeDetectionKirsch                = new QAction( tr( "&Kirsch"), this);
-    QAction     *actionEdgeDetectionLaplacianConnexity4   = new QAction( tr( "&Connexité 4"), this);
-    QAction     *actionEdgeDetectionLaplacianConnexity8   = new QAction( tr( "&Connexité 8"), this);
+    QAction     *actionEdgeDetectionLaplacianConnexity4   = new QAction( tr( "&ConnexitÃ© 4"), this);
+    QAction     *actionEdgeDetectionLaplacianConnexity8   = new QAction( tr( "&ConnexitÃ© 8"), this);
     QAction     *actionEdgeDetectionLaplacianDOG          = new QAction( tr( "&DOG"), this);
     QAction     *actionEdgeDetectionDericheSmooth         = new QAction( tr( "&Lissage"), this);
-    QAction     *actionEdgeDetectionDericheDerivative     = new QAction( tr( "&Dérivée"), this);
+    QAction     *actionEdgeDetectionDericheDerivative     = new QAction( tr( "&DÃ©rivÃ©e"), this);
     QAction     *actionEdgeDetectionDericheLaplacian      = new QAction( tr( "&Laplacien"), this);
     QAction     *actionOpMorphoMathsDilation              = new QAction( tr( "&Dilatation"), this);
     QAction     *actionOpMorphoMathsErosion               = new QAction( tr( "&Erosion"), this);
     QAction     *actionOpMorphoMathsOpening               = new QAction( tr( "&Ouverture"), this);
     QAction     *actionOpMorphoMathsClosing               = new QAction( tr( "&Fermeture"), this);
-    QAction     *actionOpMorphoMathsInteriorGradient      = new QAction( tr( "&Contour intérieur"), this);
-    QAction     *actionOpMorphoMathsExteriorGradient      = new QAction( tr( "&Contour extérieur"), this);
+    QAction     *actionOpMorphoMathsInteriorGradient      = new QAction( tr( "&Contour intÃ©rieur"), this);
+    QAction     *actionOpMorphoMathsExteriorGradient      = new QAction( tr( "&Contour extÃ©rieur"), this);
     QAction     *actionOpMorphoMathsMorphologicalGradient = new QAction( tr( "&Gradient morphologique"), this);
     QAction     *actionOpMorphoMathsHitOrMiss             = new QAction( tr( "&Tout ou rien"), this);
     QAction     *actionOpMorphoMathsThinning              = new QAction( tr( "&Amincissement"), this);
@@ -173,7 +173,7 @@ MainWindow::MainWindow( QWidget *parent)
 }
 
 //------------------------------------------------------------------------------
-//! Destructeur
+//! Destructor
 //!
 //! @param _
 //!
@@ -185,10 +185,10 @@ MainWindow::~MainWindow()
 
 
 //------------------------------------------------------------------------------
-// Fonction(s) Publique(s) Slot(s)
+// Public Slot Method(s)
 
 //------------------------------------------------------------------------------
-//! Ouverture du fichier image
+//! Open the image file
 //!
 //! @param _
 //!
@@ -204,7 +204,7 @@ void MainWindow::openImage( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la composante Y de l'image
+//! Display the Y part of the image
 //!
 //! @param _
 //!
@@ -218,7 +218,7 @@ void MainWindow::displayComponentY( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la composante U de l'image
+//! Display the U part of the image
 //!
 //! @param _
 //!
@@ -232,7 +232,7 @@ void MainWindow::displayComponentU( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la composante V de l'image
+//! Display the V part of the image
 //!
 //! @param _
 //!
@@ -246,7 +246,7 @@ void MainWindow::displayComponentV( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la quantification en niveau de gris de l'image
+//! Display the grayscale quantisation of the image
 //!
 //! @param _
 //!
@@ -260,7 +260,7 @@ void MainWindow::displayQuantisationGray( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la quantification en couleur de l'image
+//! Display the colored quantisation of the image
 //!
 //! @param _
 //!
@@ -274,7 +274,7 @@ void MainWindow::displayQuantisationRGB( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la Transformée de Fourier de l'image
+//! Display the Fourier transformation of the image
 //!
 //! @param _
 //!
@@ -288,7 +288,7 @@ void MainWindow::displayFourierTransform( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la rotation de l'image
+//! Display the rotated the image
 //!
 //! @param _
 //!
@@ -302,7 +302,7 @@ void MainWindow::displayRotation( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de l'homothétie de l'image
+//! Display the resulted by homothetie of the image
 //!
 //! @param _
 //!
@@ -316,7 +316,7 @@ void MainWindow::displayScale( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage du cisaillement de l'image
+//! Display the resulted by shear of the image
 //!
 //! @param _
 //!
@@ -330,7 +330,7 @@ void MainWindow::displayShear( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la détection de contours naïve de l'image
+//! Display the resulted by naive edge detection of the image
 //!
 //! @param _
 //!
@@ -344,7 +344,7 @@ void MainWindow::displayEdgeDetectionSimple( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la détection de contours (Roberts) de l'image
+//! Display the resulted by "Roberts" edge detection of the image
 //!
 //! @param _
 //!
@@ -358,7 +358,7 @@ void MainWindow::displayEdgeDetectionRoberts( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la détection de contours (Sobel) de l'image
+//! Display the resulted by "Sobel" edge detection of the image
 //!
 //! @param _
 //!
@@ -372,7 +372,7 @@ void MainWindow::displayEdgeDetectionSobel( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la détection de contours (Prewitt) de l'image
+//! Display the resulted by "Prewitt" edge detection of the image
 //!
 //! @param _
 //!
@@ -386,7 +386,7 @@ void MainWindow::displayEdgeDetectionPrewitt( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la détection de contours (Kirsch) de l'image
+//! Display the resulted by "Kirsch" edge detection of the image
 //!
 //! @param _
 //!
@@ -400,8 +400,8 @@ void MainWindow::displayEdgeDetectionKirsch( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la détection de contours (Laplacien Connexité 4)
-//! de l'image
+//! Display the resulted by "Laplacian with connectivity 4" edge detection of
+//! the image
 //!
 //! @param _
 //!
@@ -415,8 +415,8 @@ void MainWindow::displayEdgeDetectionLaplacianConnexity4( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la détection de contours (Laplacien Connexité 8)
-//! de l'image
+//! Display the resulted by "Laplacian with connectivity 8" edge detection of
+//! the image
 //!
 //! @param _
 //!
@@ -430,7 +430,7 @@ void MainWindow::displayEdgeDetectionLaplacianConnexity8( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la détection de contours (Laplacien DOG) de l'image
+//! Display the resulted by "Laplacian DOG" edge detection of the image
 //!
 //! @param _
 //!
@@ -444,8 +444,8 @@ void MainWindow::displayEdgeDetectionLaplacianDOG( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la détection de contours (Deriche Lissage)
-//! de l'image
+//! Display the resulted by "Derich smoothing filter" edge detection of the
+//! image
 //!
 //! @param _
 //!
@@ -459,8 +459,7 @@ void MainWindow::displayEdgeDetectionDericheSmooth( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la détection de contours (Deriche Dérivée)
-//! de l'image
+//! Display the resulted by "Derivated Deriche" edge detection of the image
 //!
 //! @param _
 //!
@@ -474,8 +473,7 @@ void MainWindow::displayEdgeDetectionDericheDerivative( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la détection de contours (Deriche Laplacien)
-//! de l'image
+//! Display the resulted by "Laplacian Deriche" edge detection of the image
 //!
 //! @param _
 //!
@@ -489,7 +487,7 @@ void MainWindow::displayEdgeDetectionDericheLaplacian( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la dilatation de l'image
+//! Display the resulted dilated image
 //!
 //! @param _
 //!
@@ -503,7 +501,7 @@ void MainWindow::displayOpMorphoMathsDilation( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de l'érosion de l'image
+//! Display the resulted eroded image
 //!
 //! @param _
 //!
@@ -517,7 +515,7 @@ void MainWindow::displayOpMorphoMathsErosion( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de l'ouverture de l'image
+//! Display the resulted "opened" image
 //!
 //! @param _
 //!
@@ -531,7 +529,7 @@ void MainWindow::displayOpMorphoMathsOpening( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la fermeture de l'image
+//! Display the resulted "closed" image
 //!
 //! @param _
 //!
@@ -545,7 +543,7 @@ void MainWindow::displayOpMorphoMathsClosing( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage du contour intérieur de l'image
+//! Display the resulted interior gradient of the image
 //!
 //! @param _
 //!
@@ -559,7 +557,7 @@ void MainWindow::displayOpMorphoMathsInteriorGradient( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage du contour extérieur de l'image
+//! Display the resulted exterior gradient of the image
 //!
 //! @param _
 //!
@@ -573,7 +571,7 @@ void MainWindow::displayOpMorphoMathsExteriorGradient( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage du gradient morphologique de l'image
+//! Display the resulted morphological gradient of the image
 //!
 //! @param _
 //!
@@ -587,7 +585,7 @@ void MainWindow::displayOpMorphoMathsMorphologicalGradient( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage du "Tout ou rien" de l'image
+//! Display the resulted "hit or miss" of the image
 //!
 //! @param _
 //!
@@ -601,7 +599,7 @@ void MainWindow::displayOpMorphoMathsHitOrMiss( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de l'amincissement de l'image
+//! Display the resulted thinned image
 //!
 //! @param _
 //!
@@ -615,7 +613,7 @@ void MainWindow::displayOpMorphoMathsThinning( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la squelettisation de l'image
+//! Display the resulted skeletonized image
 //!
 //! @param _
 //!
@@ -629,7 +627,7 @@ void MainWindow::displayOpMorphoMathsSkeletonizing( void)
 }
 
 //------------------------------------------------------------------------------
-//! Affichage de la détection d'une droite de l'image
+//! Display the resulted image after a line detection
 //!
 //! @param _
 //!

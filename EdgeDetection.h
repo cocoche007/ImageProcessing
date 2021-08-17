@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 //! @file EdgeDetection.h
-//! @brief Header du fichier EdgeDetection.cpp
+//! @brief Header file of the CEdgeDetection class
 //! @author Fabrice Cochet
 //! @version 1.0
 //------------------------------------------------------------------------------
@@ -16,7 +16,7 @@
 
 
 //------------------------------------------------------------------------------
-// Enum(s) :
+// Enumeration(s) :
 
 enum
 {

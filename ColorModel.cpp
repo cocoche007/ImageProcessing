@@ -1,25 +1,25 @@
 //------------------------------------------------------------------------------
 //! @file ColorModel.cpp
-//! @brief Fichier où la classe CColorModel est définie
+//! @brief Definition file of the CColorModel class
 //! @author Fabrice Cochet
 //! @version 1.0
 //------------------------------------------------------------------------------
 
 //------------------------------------------------------------------------------
-// Include(s) :
+// Include(s):
 
 #include "ColorModel.h"
 
 
 //------------------------------------------------------------------------------
-// Fonction(s) Publique(s) :
+// Public Method(s):
 
 //------------------------------------------------------------------------------
-//! Constructeur d'objet CColorModel pour une image donnée
+//! CColorModel constructor for a given image
 //!
-//! @param imageIn : L'image d'entrée
+//! @param imageIn The input image
 //!
-//! @return L'objet créé
+//! @return The created object
 //------------------------------------------------------------------------------
 CColorModel::CColorModel( QImage *imageIn)
 {
@@ -28,7 +28,7 @@ CColorModel::CColorModel( QImage *imageIn)
 }
 
 //------------------------------------------------------------------------------
-//! Destructeur
+//! Destructor
 //!
 //! @param _
 //!
@@ -40,11 +40,11 @@ CColorModel::~CColorModel( void)
 }
 
 //------------------------------------------------------------------------------
-//! Retourne l'image traitée
+//! Return the treated image
 //!
 //! @param _
 //!
-//! @return Le pointeur sur l'image traitée
+//! @return A pointer on the treated image
 //------------------------------------------------------------------------------
 QImage* CColorModel::getImageTreated( void)
 {
@@ -52,7 +52,7 @@ QImage* CColorModel::getImageTreated( void)
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de la composante Y de l'image
+//! Compute the Y part or the image
 //!
 //! @param _
 //!
@@ -85,7 +85,7 @@ void CColorModel::computeComponentY( void)
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de la composante U de l'image
+//! Compute the U part of the image
 //!
 //! @param _
 //!
@@ -125,7 +125,7 @@ void CColorModel::computeComponentU( void)
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de la composante V de l'image
+//! Compute the V part of the image
 //!
 //! @param _
 //!

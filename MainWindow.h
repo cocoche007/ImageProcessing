@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 //! @file OpMorphoMaths.h
-//! @brief Header du fichier OpMorphoMaths.cpp
+//! @brief Header file of the MainWindow class
 //! @author Fabrice Cochet
 //! @version 1.0
 //------------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 //! @file RegionDetection.h
-//! @brief Header du fichier RegionDetection.cpp
+//! @brief Header file of the CRegionDetection class
 //! @author Fabrice Cochet
 //! @version 1.0
 //------------------------------------------------------------------------------
@@ -16,7 +16,7 @@
 
 
 //------------------------------------------------------------------------------
-// Enum(s) :
+// Enumeration(s):
 
 enum DETECTION_REGION_TYPE
 {

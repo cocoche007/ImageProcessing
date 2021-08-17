@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 //! @file main.cpp
-//! @brief Fichier où la fonction principale est définie
+//! @brief File where the main method is defined
 //! @author Fabrice Cochet
 //! @version 1.0
 //------------------------------------------------------------------------------
@@ -12,13 +12,13 @@
 #include "MainWindow.h"
 
 //------------------------------------------------------------------------------
-//! Constructeur d'objet MainWindow
+//! Application start point
 //!
-//! @param argc : Le nombre d'arguments
-//! @param argv : La liste d'arguments
+//! @param argc The argument number
+//! @param argv The argument list
 //!
-//! @return 0 si OK
-//! @return <>0 sinon
+//! @return 0 if OK
+//! @return <>0 otherwise
 //------------------------------------------------------------------------------
 int main( int argc, char *argv[])
 {

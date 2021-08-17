@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 //! @file ColorModel.h
-//! @brief Header du fichier ColorModel.cpp
+//! @brief Header file of the CColorModel class
 //! @author Fabrice Cochet
 //! @version 1.0
 //------------------------------------------------------------------------------
@@ -9,13 +9,13 @@
 #define __COLOR_MODEL_H__
 
 //------------------------------------------------------------------------------
-// Include(s) :
+// Include(s):
 
 #include <QImage>
 
 
 //------------------------------------------------------------------------------
-// Classe(s) :
+// Classe(s):
 
 class CColorModel
 {

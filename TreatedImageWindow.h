@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 //! @file TreatedImageWindow.h
-//! @brief Header du fichier TreatedImageWindow.cpp
+//! @brief Header file of the CTreatedImageWindow class
 //! @author Fabrice Cochet
 //! @version 1.0
 //------------------------------------------------------------------------------
@@ -32,7 +32,7 @@
 
 
 //------------------------------------------------------------------------------
-// Enum(s) :
+// Enumeration(s):
 
 enum
 {

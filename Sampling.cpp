@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 //! @file Sampling.cpp
-//! @brief Fichier où la classe CSampling est définie
+//! @brief Definition file of the CSampling class
 //! @author Fabrice Cochet
 //! @version 1.0
 //------------------------------------------------------------------------------
@@ -15,14 +15,14 @@
 
 
 //------------------------------------------------------------------------------
-// Fonction(s) Publique(s) :
+// Public Method(s):
 
 //------------------------------------------------------------------------------
-//! Constructeur d'objet CSampling pour une image donnée
+//! CSampling constructor for a given image
 //!
-//! @param imageIn : L'image d'entrée
+//! @param imageIn The input image
 //!
-//! @return L'objet créé
+//! @return The created object
 //------------------------------------------------------------------------------
 CSampling::CSampling( QImage *imageIn)
 {
@@ -31,7 +31,7 @@ CSampling::CSampling( QImage *imageIn)
 }
 
 //------------------------------------------------------------------------------
-//! Destructeur
+//! Destructor
 //!
 //! @param _
 //!
@@ -43,11 +43,11 @@ CSampling::~CSampling()
 }
 
 //------------------------------------------------------------------------------
-//! Retourne l'image traitée
+//! Get the treated image
 //!
 //! @param _
 //!
-//! @return Le pointeur sur l'image traitée
+//! @return A pointer on the treated image
 //------------------------------------------------------------------------------
 QImage* CSampling::getImageTreated( void)
 {
@@ -55,11 +55,11 @@ QImage* CSampling::getImageTreated( void)
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de la transformée de fourier de l'image
+//! Compute the Fourier Transform of the image
 //!
 //! @param _
 //!
-//! @return Le pointeur sur l'image traitée
+//! @return A pointer on the treated image
 //------------------------------------------------------------------------------
 void CSampling::computeFourierTransform( void)
 {

@@ -1,6 +1,6 @@
 //------------------------------------------------------------------------------
 //! @file GeometricTransformation.cpp
-//! @brief Fichier où la classe CGeometricTransformation est définie
+//! @brief Definition file of the CGeometricTransformation class
 //! @author Fabrice Cochet
 //! @version 1.0
 //------------------------------------------------------------------------------
@@ -13,14 +13,14 @@
 
 
 //------------------------------------------------------------------------------
-// Fonction(s) Publique(s) :
+// Public Method(s):
 
 //------------------------------------------------------------------------------
-//! Constructeur d'objet CGeometricTransformation pour une image donnée
+//! CGeometricTransformation constructor for a given image
 //!
-//! @param imageIn : L'image d'entrée
+//! @param imageIn The input image
 //!
-//! @return L'objet créé
+//! @return The created object
 //------------------------------------------------------------------------------
 CGeometricTransformation::CGeometricTransformation( QImage *imageIn)
 {
@@ -29,7 +29,7 @@ CGeometricTransformation::CGeometricTransformation( QImage *imageIn)
 }
 
 //------------------------------------------------------------------------------
-//! Destructeur
+//! Destructor
 //!
 //! @param _
 //!
@@ -41,11 +41,11 @@ CGeometricTransformation::~CGeometricTransformation( void)
 }
 
 //------------------------------------------------------------------------------
-//! Retourne l'image traitée
+//! Get the treated image
 //!
 //! @param _
 //!
-//! @return Le pointeur sur l'image traitée
+//! @return A pointer on the treated image
 //------------------------------------------------------------------------------
 QImage* CGeometricTransformation::getImageTreated( void)
 {
@@ -53,9 +53,9 @@ QImage* CGeometricTransformation::getImageTreated( void)
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de l'image ayant subit une rotation
+//! Apply a rotation to the image
 //!
-//! @param rotationAngle : L'angle de rotation en degré
+//! @param rotationAngle The rotation angle in degrees
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -110,9 +110,9 @@ void CGeometricTransformation::computeRotation( int rotationAngle)
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de l'image ayant subit une homotéthie
+//! Apply a homotethie to the image
 //!
-//! @param scaleFactor : Le facteur d'homotéthie
+//! @param scaleFactor The homothetie factor
 //!
 //! @return _
 //------------------------------------------------------------------------------
@@ -147,10 +147,10 @@ void CGeometricTransformation::computeScale( int scaleFactor)
 }
 
 //------------------------------------------------------------------------------
-//! Calcul de l'image ayant subit un cisaillement
+//! Apply a shear to the image
 //!
-//! @param shearFactorX : Le facteur de cisaillement en X
-//! @param shearFactorY : Le facteur de cisaillement en Y
+//! @param shearFactorX The shear factor by X
+//! @param shearFactorY The shear factor by Y
 //!
 //! @return _
 //------------------------------------------------------------------------------
