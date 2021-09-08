@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui widgets
 
 TARGET = TraitementImages
 TEMPLATE = app
@@ -18,7 +18,8 @@ SOURCES += main.cpp\
     EdgeDetection.cpp \
     TreatedImageWindow.cpp \
     ../../Commun/Image/cimage.tpp \
-    OpMorphoMaths.cpp
+    OpMorphoMaths.cpp \
+    RegionDetection.cpp
 
 HEADERS  += MainWindow.h \
     ColorModel.h \
@@ -28,7 +29,8 @@ HEADERS  += MainWindow.h \
     EdgeDetection.h \
     TreatedImageWindow.h \
     ../../Commun/Image/cimage.h \
-    OpMorphoMaths.h
+    OpMorphoMaths.h \
+    RegionDetection.h
 
-LIBS += -L../../Commun/Maths/qrealfourier/lib/ -LC:\QtSDK\Qxt\lib\mingw
+LIBS += -L../../Commun/Maths/build/
 LIBS += -lqrealfourier
