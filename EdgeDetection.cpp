@@ -16,23 +16,23 @@
 //------------------------------------------------------------------------------
 // Constant Variable(s):
 
-const int sobelMatrix1[3][3]            = {{1, 2, 1}, {0, 0, 0}, {-1, -2, -1}};
-const int sobelMatrix2[3][3]            = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
-const int prewittMatrix1[3][3]          = {{1, 1, 1}, {0, 0, 0}, {-1, -1, -1}};
-const int prewittMatrix2[3][3]          = {{1, 1, 0}, {1, 0, -1}, {0, -1, -1}};
-const int prewittMatrix3[3][3]          = {{1, 0, -1}, {1, 0, -1}, {1, 0, -1}};
-const int prewittMatrix4[3][3]          = {{0, -1, -1}, {1, 0, -1}, {1, 1, 0}};
-const int kirschMatrix1[3][3]           = {{5, 5, 5}, {-3, 0, -3}, {-3, -3, -3}};
-const int kirschMatrix2[3][3]           = {{5, 5, -3}, {5, 0, -3}, {-3, -3, -3}};
-const int kirschMatrix3[3][3]           = {{5, -3, -3}, {5, 0, -3}, {5, -3, -3}};
-const int kirschMatrix4[3][3]           = {{-3, -3, -3}, {5, 0, -3}, {5, 5, -3}};
-const int kirschMatrix5[3][3]           = {{-3, -3, -3}, {-3, 0, -3}, {5, 5, 5}};
-const int kirschMatrix6[3][3]           = {{-3, -3, -3}, {-3, 0, 5}, {-3, 5, 5}};
-const int kirschMatrix7[3][3]           = {{-3, -3, 5}, {-3, 0, 5}, {-3, -3, 5}};
-const int kirschMatrix8[3][3]           = {{-3, 5, 5}, {-3, 0, 5}, {-3, -3, -3}};
-const int laplaceConnexityMatrix4[3][3] = {{0, -1, 0}, {-1, 4, -1}, {0, -1, 0}};
-const int laplaceConnexityMatrix8[3][3] = {{-1, -1, -1}, {-1, 8, -1}, {-1, -1, -1}};
-const int noyauGaussien3x3[3][3]        = {{1, 1, 1}, {1, 8, 1}, {1, 1, 1}};
+const int sobelMatrix1[3][3]                = {{1, 2, 1}, {0, 0, 0}, {-1, -2, -1}};
+const int sobelMatrix2[3][3]                = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
+const int prewittMatrix1[3][3]              = {{1, 1, 1}, {0, 0, 0}, {-1, -1, -1}};
+const int prewittMatrix2[3][3]              = {{1, 1, 0}, {1, 0, -1}, {0, -1, -1}};
+const int prewittMatrix3[3][3]              = {{1, 0, -1}, {1, 0, -1}, {1, 0, -1}};
+const int prewittMatrix4[3][3]              = {{0, -1, -1}, {1, 0, -1}, {1, 1, 0}};
+const int kirschMatrix1[3][3]               = {{5, 5, 5}, {-3, 0, -3}, {-3, -3, -3}};
+const int kirschMatrix2[3][3]               = {{5, 5, -3}, {5, 0, -3}, {-3, -3, -3}};
+const int kirschMatrix3[3][3]               = {{5, -3, -3}, {5, 0, -3}, {5, -3, -3}};
+const int kirschMatrix4[3][3]               = {{-3, -3, -3}, {5, 0, -3}, {5, 5, -3}};
+const int kirschMatrix5[3][3]               = {{-3, -3, -3}, {-3, 0, -3}, {5, 5, 5}};
+const int kirschMatrix6[3][3]               = {{-3, -3, -3}, {-3, 0, 5}, {-3, 5, 5}};
+const int kirschMatrix7[3][3]               = {{-3, -3, 5}, {-3, 0, 5}, {-3, -3, 5}};
+const int kirschMatrix8[3][3]               = {{-3, 5, 5}, {-3, 0, 5}, {-3, -3, -3}};
+const int laplaceConnectednessMatrix4[3][3] = {{0, -1, 0}, {-1, 4, -1}, {0, -1, 0}};
+const int laplaceConnectednessMatrix8[3][3] = {{-1, -1, -1}, {-1, 8, -1}, {-1, -1, -1}};
+const int noyauGaussien3x3[3][3]            = {{1, 1, 1}, {1, 8, 1}, {1, 1, 1}};
 
 
 //------------------------------------------------------------------------------
@@ -234,12 +234,12 @@ void CEdgeDetection::computeEdgeDetection(int detectionType, int thresholdMin, i
                     computeEdgeDetectionKirsch(m_imageGray, m_edgeDetectionImage);
                     break;
 
-                case EDGE_DETECTION_LAPLACIAN_CONNEXITY_4:
-                    computeEdgeDetectionLaplacianConnexity4(m_imageGray, m_edgeDetectionImage);
+                case EDGE_DETECTION_LAPLACIAN_CONNECTEDNESS_4:
+                    computeEdgeDetectionLaplacianConnectedness4(m_imageGray, m_edgeDetectionImage);
                     break;
 
-                case EDGE_DETECTION_LAPLACIAN_CONNEXITY_8:
-                    computeEdgeDetectionLaplacianConnexity8(m_imageGray, m_edgeDetectionImage);
+                case EDGE_DETECTION_LAPLACIAN_CONNECTEDNESS_8:
+                    computeEdgeDetectionLaplacianConnectedness8(m_imageGray, m_edgeDetectionImage);
                     break;
 
                 case EDGE_DETECTION_LAPLACIAN_DOG:
@@ -567,14 +567,14 @@ void CEdgeDetection::computeEdgeDetectionKirsch(CImageInt *imageIn, CImageInt *i
 
 
 //------------------------------------------------------------------------------
-//! Compute an edge detection (Laplacian with connectivity 4)
+//! Compute an edge detection (Laplacian with connectedness 4)
 //!
 //! @param imageIn The input image
 //! @param imageOut The output image
 //!
 //! @return _
 //------------------------------------------------------------------------------
-void CEdgeDetection::computeEdgeDetectionLaplacianConnexity4(CImageInt *imageIn, CImageInt *imageOut)
+void CEdgeDetection::computeEdgeDetectionLaplacianConnectedness4(CImageInt *imageIn, CImageInt *imageOut)
 {
     int K1;
 
@@ -585,7 +585,7 @@ void CEdgeDetection::computeEdgeDetectionLaplacianConnexity4(CImageInt *imageIn,
         {
             for (int y = 1; y < m_imageOrigin->height() - 1; y++)
             {
-                K1 = convolution(imageIn, x, y, laplaceConnexityMatrix4, 4);
+                K1 = convolution(imageIn, x, y, laplaceConnectednessMatrix4, 4);
 
                 (*imageOut)(x, y) = qAbs(K1);
 
@@ -598,14 +598,14 @@ void CEdgeDetection::computeEdgeDetectionLaplacianConnexity4(CImageInt *imageIn,
 
 
 //------------------------------------------------------------------------------
-//! Compute an edge detection (Laplacian with connectivity 8)
+//! Compute an edge detection (Laplacian with connectedness 8)
 //!
 //! @param imageIn The input image
 //! @param imageOut The output image
 //!
 //! @return _
 //------------------------------------------------------------------------------
-void CEdgeDetection::computeEdgeDetectionLaplacianConnexity8(CImageInt *imageIn, CImageInt *imageOut)
+void CEdgeDetection::computeEdgeDetectionLaplacianConnectedness8(CImageInt *imageIn, CImageInt *imageOut)
 {
     int K1;
 
@@ -616,7 +616,7 @@ void CEdgeDetection::computeEdgeDetectionLaplacianConnexity8(CImageInt *imageIn,
         {
             for (int y = 1; y < m_imageOrigin->height() - 1; y++)
             {
-                K1 = convolution(imageIn, x, y, laplaceConnexityMatrix8, 8);
+                K1 = convolution(imageIn, x, y, laplaceConnectednessMatrix8, 8);
 
                 (*imageOut)(x, y) = qAbs(K1);
 

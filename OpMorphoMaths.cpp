@@ -202,14 +202,14 @@ void COpMorphoMaths::initNeighborhood(void)
     {
         switch (m_neighborhoodType)
         {
-            case OPMORPHOMATHS_NEIGHBORHOOD_CONNEXITY_4:
+            case OPMORPHOMATHS_NEIGHBORHOOD_CONNECTEDNESS_4:
                 for (int x = 0; x < m_neighborhood->getWidth(); x++)
                     (*m_neighborhood)(x, m_dimension) = CIMAGEINT_MAX;
                 for (int y = 0; y < m_neighborhood->getHeight(); y++)
                     (*m_neighborhood)(m_dimension, y) = CIMAGEINT_MAX;
                 break;
 
-            case OPMORPHOMATHS_NEIGHBORHOOD_CONNEXITY_8:
+            case OPMORPHOMATHS_NEIGHBORHOOD_CONNECTEDNESS_8:
                 for (int x = 0; x < m_neighborhood->getWidth(); x++)
                     for (int y = 0; y < m_neighborhood->getHeight(); y++)
                         (*m_neighborhood)(x, y) = CIMAGEINT_MAX;
@@ -225,28 +225,28 @@ void COpMorphoMaths::initNeighborhood(void)
                     (*m_neighborhood)(x, m_dimension) = CIMAGEINT_MAX;
                 break;
 
-            case OPMORPHOMATHS_NEIGHBORHOOD_CONNEXITY_4_UP:
+            case OPMORPHOMATHS_NEIGHBORHOOD_CONNECTEDNESS_4_UP:
                 for (int x = 0; x < m_neighborhood->getWidth(); x++)
                     (*m_neighborhood)(x, m_dimension) = CIMAGEINT_MAX;
                 for (int y = 0; y <= m_dimension; y++)
                     (*m_neighborhood)(m_dimension, y) = CIMAGEINT_MAX;
                 break;
 
-            case OPMORPHOMATHS_NEIGHBORHOOD_CONNEXITY_4_DOWN:
+            case OPMORPHOMATHS_NEIGHBORHOOD_CONNECTEDNESS_4_DOWN:
                 for (int x = 0; x < m_neighborhood->getWidth(); x++)
                     (*m_neighborhood)(x, m_dimension) = CIMAGEINT_MAX;
                 for (int y = m_dimension + 1; y < m_neighborhood->getHeight(); y++)
                     (*m_neighborhood)(m_dimension, y) = CIMAGEINT_MAX;
                 break;
 
-            case OPMORPHOMATHS_NEIGHBORHOOD_CONNEXITY_4_LEFT:
+            case OPMORPHOMATHS_NEIGHBORHOOD_CONNECTEDNESS_4_LEFT:
                 for (int x = 0; x <= m_dimension; x++)
                     (*m_neighborhood)(x, m_dimension) = CIMAGEINT_MAX;
                 for (int y = 0; y < m_neighborhood->getHeight(); y++)
                     (*m_neighborhood)(m_dimension, y) = CIMAGEINT_MAX;
                 break;
 
-            case OPMORPHOMATHS_NEIGHBORHOOD_CONNEXITY_4_RIGHT:
+            case OPMORPHOMATHS_NEIGHBORHOOD_CONNECTEDNESS_4_RIGHT:
                 for (int x = m_dimension + 1; x < m_neighborhood->getWidth(); x++)
                     (*m_neighborhood)(x, m_dimension) = CIMAGEINT_MAX;
                 for (int y = 0; y < m_neighborhood->getHeight(); y++)

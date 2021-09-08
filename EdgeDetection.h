@@ -27,8 +27,8 @@ enum
     EDGE_DETECTION_SOBEL,
     EDGE_DETECTION_PREWITT,
     EDGE_DETECTION_KIRSCH,
-    EDGE_DETECTION_LAPLACIAN_CONNEXITY_4,
-    EDGE_DETECTION_LAPLACIAN_CONNEXITY_8,
+    EDGE_DETECTION_LAPLACIAN_CONNECTEDNESS_4,
+    EDGE_DETECTION_LAPLACIAN_CONNECTEDNESS_8,
     EDGE_DETECTION_LAPLACIAN_DOG,
     EDGE_DETECTION_DERICHE_SMOOTH,
     EDGE_DETECTION_DERICHE_DERIVATIVE,
@@ -75,8 +75,8 @@ private:
     void computeEdgeDetectionSobel(CImageInt *imageIn, CImageInt *imageOut);
     void computeEdgeDetectionPrewitt(CImageInt *imageIn, CImageInt *imageOut);
     void computeEdgeDetectionKirsch(CImageInt *imageIn, CImageInt *imageOut);
-    void computeEdgeDetectionLaplacianConnexity4(CImageInt *imageIn, CImageInt *imageOut);
-    void computeEdgeDetectionLaplacianConnexity8(CImageInt *imageIn, CImageInt *imageOut);
+    void computeEdgeDetectionLaplacianConnectedness4(CImageInt *imageIn, CImageInt *imageOut);
+    void computeEdgeDetectionLaplacianConnectedness8(CImageInt *imageIn, CImageInt *imageOut);
     void computeEdgeDetectionLaplacianDOG(CImageInt *imageIn, CImageInt *imageOut);
     void computeEdgeDetectionDericheSmooth(CImageInt *imageIn, CImageInt *imageOut);
     void computeEdgeDetectionDericheDerivative(CImageInt *imageIn, CImageInt *imageOut);

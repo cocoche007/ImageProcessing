@@ -44,8 +44,8 @@ public slots:
     void displayEdgeDetectionSobel(void);
     void displayEdgeDetectionPrewitt(void);
     void displayEdgeDetectionKirsch(void);
-    void displayEdgeDetectionLaplacianConnexity4(void);
-    void displayEdgeDetectionLaplacianConnexity8(void);
+    void displayEdgeDetectionLaplacianConnectedness4(void);
+    void displayEdgeDetectionLaplacianConnectedness8(void);
     void displayEdgeDetectionLaplacianDOG(void);
     void displayEdgeDetectionDericheSmooth(void);
     void displayEdgeDetectionDericheDerivative(void);

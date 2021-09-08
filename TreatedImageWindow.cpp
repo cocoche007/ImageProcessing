@@ -64,8 +64,8 @@ CTreatedImageWindow::CTreatedImageWindow(int type, QImage *imageIn, QWidget *par
                 case PROCESSING_EDGE_DETECTION_SOBEL:
                 case PROCESSING_EDGE_DETECTION_PREWITT:
                 case PROCESSING_EDGE_DETECTION_KIRSCH:
-                case PROCESSING_EDGE_DETECTION_LAPLACIAN_CONNEXITY_4:
-                case PROCESSING_EDGE_DETECTION_LAPLACIAN_CONNEXITY_8:
+                case PROCESSING_EDGE_DETECTION_LAPLACIAN_CONNECTEDNESS_4:
+                case PROCESSING_EDGE_DETECTION_LAPLACIAN_CONNECTEDNESS_8:
                 case PROCESSING_EDGE_DETECTION_LAPLACIAN_DOG:
                 case PROCESSING_EDGE_DETECTION_DERICHE_SMOOTH:
                 case PROCESSING_EDGE_DETECTION_DERICHE_DERIVATIVE:
@@ -172,12 +172,12 @@ void CTreatedImageWindow::display(void)
             displayEdgeDetectionKirsch();
             break;
 
-        case PROCESSING_EDGE_DETECTION_LAPLACIAN_CONNEXITY_4:
-            displayEdgeDetectionLaplacianConnexity4();
+        case PROCESSING_EDGE_DETECTION_LAPLACIAN_CONNECTEDNESS_4:
+            displayEdgeDetectionLaplacianConnectedness4();
             break;
 
-        case PROCESSING_EDGE_DETECTION_LAPLACIAN_CONNEXITY_8:
-            displayEdgeDetectionLaplacianConnexity8();
+        case PROCESSING_EDGE_DETECTION_LAPLACIAN_CONNECTEDNESS_8:
+            displayEdgeDetectionLaplacianConnectedness8();
             break;
 
         case PROCESSING_EDGE_DETECTION_LAPLACIAN_DOG:
@@ -513,17 +513,17 @@ void CTreatedImageWindow::displayEdgeDetectionKirsch(void)
 
 
 //------------------------------------------------------------------------------
-//! Display the image after an edge detection (Laplacian with connectivity 4)
+//! Display the image after an edge detection (Laplacian with connectedness 4)
 //!
 //! @param _
 //!
 //! @return _
 //------------------------------------------------------------------------------
-void CTreatedImageWindow::displayEdgeDetectionLaplacianConnexity4(void)
+void CTreatedImageWindow::displayEdgeDetectionLaplacianConnectedness4(void)
 {
-    if (m_processingType == PROCESSING_EDGE_DETECTION_LAPLACIAN_CONNEXITY_4)
+    if (m_processingType == PROCESSING_EDGE_DETECTION_LAPLACIAN_CONNECTEDNESS_4)
     {
-        m_edgeDetection->computeEdgeDetection(EDGE_DETECTION_LAPLACIAN_CONNEXITY_4, m_thresholdMin, m_thresholdMax, m_isMonochrom);
+        m_edgeDetection->computeEdgeDetection(EDGE_DETECTION_LAPLACIAN_CONNECTEDNESS_4, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_edgeDetection->getImageTreated()));
         setWindowTitle(tr("Edge detection (Laplacian Connectedness 4)"));
@@ -532,17 +532,17 @@ void CTreatedImageWindow::displayEdgeDetectionLaplacianConnexity4(void)
 
 
 //------------------------------------------------------------------------------
-//! Display the image after an edge detection (Laplacian with connectivity 8)
+//! Display the image after an edge detection (Laplacian with connectedness 8)
 //!
 //! @param _
 //!
 //! @return _
 //------------------------------------------------------------------------------
-void CTreatedImageWindow::displayEdgeDetectionLaplacianConnexity8(void)
+void CTreatedImageWindow::displayEdgeDetectionLaplacianConnectedness8(void)
 {
-    if (m_processingType == PROCESSING_EDGE_DETECTION_LAPLACIAN_CONNEXITY_8)
+    if (m_processingType == PROCESSING_EDGE_DETECTION_LAPLACIAN_CONNECTEDNESS_8)
     {
-        m_edgeDetection->computeEdgeDetection(EDGE_DETECTION_LAPLACIAN_CONNEXITY_8, m_thresholdMin, m_thresholdMax, m_isMonochrom);
+        m_edgeDetection->computeEdgeDetection(EDGE_DETECTION_LAPLACIAN_CONNECTEDNESS_8, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_edgeDetection->getImageTreated()));
         setWindowTitle(tr("Edge detection (Laplacian Connectedness 8)"));
@@ -1095,8 +1095,8 @@ bool CTreatedImageWindow::initEdgeDetection(void)
             case PROCESSING_EDGE_DETECTION_SOBEL:
             case PROCESSING_EDGE_DETECTION_PREWITT:
             case PROCESSING_EDGE_DETECTION_KIRSCH:
-            case PROCESSING_EDGE_DETECTION_LAPLACIAN_CONNEXITY_4:
-            case PROCESSING_EDGE_DETECTION_LAPLACIAN_CONNEXITY_8:
+            case PROCESSING_EDGE_DETECTION_LAPLACIAN_CONNECTEDNESS_4:
+            case PROCESSING_EDGE_DETECTION_LAPLACIAN_CONNECTEDNESS_8:
             case PROCESSING_EDGE_DETECTION_LAPLACIAN_DOG:
                 m_nParameters = 1;
                 break;

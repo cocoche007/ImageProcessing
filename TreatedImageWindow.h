@@ -51,8 +51,8 @@ enum
     PROCESSING_EDGE_DETECTION_SOBEL,
     PROCESSING_EDGE_DETECTION_PREWITT,
     PROCESSING_EDGE_DETECTION_KIRSCH,
-    PROCESSING_EDGE_DETECTION_LAPLACIAN_CONNEXITY_4,
-    PROCESSING_EDGE_DETECTION_LAPLACIAN_CONNEXITY_8,
+    PROCESSING_EDGE_DETECTION_LAPLACIAN_CONNECTEDNESS_4,
+    PROCESSING_EDGE_DETECTION_LAPLACIAN_CONNECTEDNESS_8,
     PROCESSING_EDGE_DETECTION_LAPLACIAN_DOG,
     PROCESSING_EDGE_DETECTION_DERICHE_SMOOTH,
     PROCESSING_EDGE_DETECTION_DERICHE_DERIVATIVE,
@@ -95,8 +95,8 @@ public:
     void displayEdgeDetectionSobel(void);
     void displayEdgeDetectionPrewitt(void);
     void displayEdgeDetectionKirsch(void);
-    void displayEdgeDetectionLaplacianConnexity4(void);
-    void displayEdgeDetectionLaplacianConnexity8(void);
+    void displayEdgeDetectionLaplacianConnectedness4(void);
+    void displayEdgeDetectionLaplacianConnectedness8(void);
     void displayEdgeDetectionLaplacianDOG(void);
     void displayEdgeDetectionDericheSmooth(void);
     void displayEdgeDetectionDericheDerivative(void);
