@@ -21,7 +21,6 @@
 #include <QSpinBox>
 #include <QVBoxLayout>
 #include <QWidget>
-#include <QxtSpanSlider>
 
 #include "ColorModel.h"
 #include "EdgeDetection.h"
@@ -117,27 +116,27 @@ public:
 private:
     int m_processingType;
 
-    QVBoxLayout *  m_vboxLayout;
-    QHBoxLayout *  m_hboxLayout;
-    QGridLayout *  m_gridLayout;
-    QLineEdit *    m_levelText;
-    QSpinBox *     m_levelChoice;
-    int            m_nParameters;
-    QLabel *       m_parameterLabel1;
-    QLabel *       m_parameterLabel2;
-    QSpinBox *     m_parameterValue1;
-    QSpinBox *     m_parameterValue2;
-    QLabel *       m_labelLowerSpanSlider;
-    QLabel *       m_labelUpperSpanSlider;
-    QxtSpanSlider *m_spanSlider;
-    QSlider *      m_slider;
-    QCheckBox *    m_checkbox1;
-    QLabel *       m_labelCheckbox1;
-    QCheckBox *    m_checkbox2;
-    QLabel *       m_labelCheckbox2;
-    QLabel *       m_labelImage;
-    QImage *       m_imageOrigin;
-    QImage *       m_imageTreated;
+    QVBoxLayout *m_vboxLayout;
+    QHBoxLayout *m_hboxLayout;
+    QGridLayout *m_gridLayout;
+    QLineEdit *  m_levelText;
+    QSpinBox *   m_levelChoice;
+    int          m_nParameters;
+    QLabel *     m_parameterLabel1;
+    QLabel *     m_parameterLabel2;
+    QSpinBox *   m_parameterValue1;
+    QSpinBox *   m_parameterValue2;
+    QLabel *     m_labelLowerSpanSlider;
+    QLabel *     m_labelUpperSpanSlider;
+    QSlider *    m_thresholdMinSlider;
+    QSlider *    m_thresholdMaxSlider;
+    QCheckBox *  m_checkbox1;
+    QLabel *     m_labelCheckbox1;
+    QCheckBox *  m_checkbox2;
+    QLabel *     m_labelCheckbox2;
+    QLabel *     m_labelImage;
+    QImage *     m_imageOrigin;
+    QImage *     m_imageTreated;
 
     CColorModel *             m_colorModel;
     CQuantisation *           m_quantisation;

@@ -1053,7 +1053,8 @@ bool CTreatedImageWindow::initEdgeDetection(void)
     m_parameterValue2      = new QSpinBox();
     m_labelLowerSpanSlider = new QLabel("0");
     m_labelUpperSpanSlider = new QLabel("255");
-    m_spanSlider           = new QxtSpanSlider(Qt::Horizontal);
+    m_thresholdMinSlider   = new QSlider(Qt::Horizontal);
+    m_thresholdMaxSlider   = new QSlider(Qt::Horizontal);
     m_checkbox1            = new QCheckBox();
     m_labelCheckbox1       = new QLabel(tr("MC"));
     m_checkbox2            = new QCheckBox();
@@ -1075,11 +1076,17 @@ bool CTreatedImageWindow::initEdgeDetection(void)
         connect(m_checkbox1, SIGNAL(stateChanged(int)), this, SLOT(updateIsMonochrome(int)));
         connect(m_checkbox2, SIGNAL(stateChanged(int)), this, SLOT(updateIsAffichageInverse(int)));
 
-        m_spanSlider->setRange(0, 255);
-        m_spanSlider->setLowerValue(0);
-        m_spanSlider->setUpperValue(255);
-        connect(m_spanSlider, SIGNAL(lowerValueChanged(int)), this, SLOT(updateThresholdMin(int)));
-        connect(m_spanSlider, SIGNAL(upperValueChanged(int)), this, SLOT(updateThresholdMax(int)));
+        m_thresholdMinSlider->setMinimum(0);
+        m_thresholdMinSlider->setMaximum(254);
+
+        m_thresholdMaxSlider->setMinimum(1);
+        m_thresholdMaxSlider->setMaximum(255);
+
+        connect(m_thresholdMinSlider, SIGNAL(valueChanged(int)), this, SLOT(updateThresholdMin(int)));
+        connect(m_thresholdMaxSlider, SIGNAL(valueChanged(int)), this, SLOT(updateThresholdMax(int)));
+
+        m_thresholdMinSlider->setValue(0);
+        m_thresholdMaxSlider->setValue(255);
 
         switch (m_processingType)
         {
@@ -1117,7 +1124,8 @@ bool CTreatedImageWindow::initEdgeDetection(void)
             m_hboxLayout->addWidget(m_labelCheckbox2);
             m_hboxLayout->addWidget(m_checkbox2);
             m_hboxLayout->addWidget(m_labelLowerSpanSlider);
-            m_hboxLayout->addWidget(m_spanSlider);
+            m_hboxLayout->addWidget(m_thresholdMinSlider);
+            m_hboxLayout->addWidget(m_thresholdMaxSlider);
             m_hboxLayout->addWidget(m_labelUpperSpanSlider);
         }
         if (m_nParameters >= 2)
@@ -1321,6 +1329,11 @@ void CTreatedImageWindow::updateThresholdMin(int threshold)
     texte = QString::number(threshold);
     m_labelLowerSpanSlider->setText(texte);
 
+    if (threshold >= m_thresholdMax)
+    {
+        m_thresholdMaxSlider->setValue(threshold + 1);
+    }
+
     display();
 }
 
@@ -1339,6 +1352,11 @@ void CTreatedImageWindow::updateThresholdMax(int threshold)
     QString texte;
     texte = QString::number(threshold);
     m_labelUpperSpanSlider->setText(texte);
+
+    if (threshold <= m_thresholdMin)
+    {
+        m_thresholdMinSlider->setValue(threshold - 1);
+    }
 
     display();
 }

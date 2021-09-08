@@ -9,14 +9,6 @@ QT       += core gui
 TARGET = TraitementImages
 TEMPLATE = app
 
-CONFIG += qxt
-QXT += core gui
-
-INCLUDEPATH += $(QXT_DIR)/include/QxtCore
-INCLUDEPATH += $(QXT_DIR)/include/QxtGui
-INCLUDEPATH += C:/QtSDK/Qxt/include/QxtCore
-INCLUDEPATH += C:/QtSDK/Qxt/include/QxtGui
-
 SOURCES += main.cpp\
         MainWindow.cpp \
     ColorModel.cpp \
@@ -39,4 +31,4 @@ HEADERS  += MainWindow.h \
     OpMorphoMaths.h
 
 LIBS += -L../../Commun/Maths/qrealfourier/lib/ -LC:\QtSDK\Qxt\lib\mingw
-LIBS += -lqrealfourier -lQxtCore -lQxtGui
+LIBS += -lqrealfourier
