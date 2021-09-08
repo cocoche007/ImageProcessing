@@ -24,7 +24,7 @@
 CColorModel::CColorModel(QImage *imageIn)
 {
     m_imageOrigin  = imageIn;
-    m_imageTreated = NULL;
+    m_imageTreated = nullptr;
 }
 
 
@@ -70,7 +70,7 @@ void CColorModel::computeComponentY(void)
         delete m_imageTreated;
         m_imageTreated = new QImage(m_imageOrigin->size(), QImage::Format_RGB32);
 
-        if (m_imageTreated != NULL)
+        if (m_imageTreated != nullptr)
         {
             for (int x = 0; x < m_imageOrigin->width(); x++)
             {
@@ -104,7 +104,7 @@ void CColorModel::computeComponentU(void)
         delete m_imageTreated;
         m_imageTreated = new QImage(m_imageOrigin->size(), QImage::Format_RGB32);
 
-        if (m_imageTreated != NULL)
+        if (m_imageTreated != nullptr)
         {
             for (int x = 0; x < m_imageOrigin->width(); x++)
             {
@@ -144,7 +144,7 @@ void CColorModel::computeComponentV(void)
     {
         delete m_imageTreated;
         m_imageTreated = new QImage(m_imageOrigin->size(), QImage::Format_RGB32);
-        if (m_imageTreated != NULL)
+        if (m_imageTreated != nullptr)
         {
             for (int x = 0; x < m_imageOrigin->width(); x++)
             {

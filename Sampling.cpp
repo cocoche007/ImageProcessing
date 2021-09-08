@@ -28,7 +28,7 @@
 CSampling::CSampling(QImage *imageIn)
 {
     m_imageOrigin  = imageIn;
-    m_imageTreated = NULL;
+    m_imageTreated = nullptr;
 }
 
 
@@ -68,10 +68,10 @@ QImage *CSampling::getImageTreated(void)
 void CSampling::computeFourierTransform(void)
 {
 #ifdef TO_DO
-    float *    ligneIn    = NULL;
-    float *    ligneOut   = NULL;
-    CImageInt *imageFloat = NULL;
-    //QLibrary  *libFFTW    = NULL;
+    float *    ligneIn    = nullptr;
+    float *    ligneOut   = nullptr;
+    CImageInt *imageFloat = nullptr;
+    //QLibrary  *libFFTW    = nullptr;
     int widthIn  = 0;
     int heightIn = 0;
     int G;

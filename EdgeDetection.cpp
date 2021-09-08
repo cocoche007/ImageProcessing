@@ -665,9 +665,9 @@ void CEdgeDetection::computeEdgeDetectionLaplacianDOG(CImageInt *imageIn, CImage
 //------------------------------------------------------------------------------
 void CEdgeDetection::computeEdgeDetectionDericheSmooth(CImageInt *imageIn, CImageInt *imageOut)
 {
-    CImageFloat *imageY1 = NULL;
-    CImageFloat *imageY2 = NULL;
-    CImageFloat *imageR  = NULL;
+    CImageFloat *imageY1 = nullptr;
+    CImageFloat *imageY2 = nullptr;
+    CImageFloat *imageR  = nullptr;
     float        k;
     float        a1, a2, a3, a4;
     float        a5, a6, a7, a8;
@@ -751,11 +751,11 @@ void CEdgeDetection::computeEdgeDetectionDericheSmooth(CImageInt *imageIn, CImag
 //------------------------------------------------------------------------------
 void CEdgeDetection::computeEdgeDetectionDericheDerivative(CImageInt *imageIn, CImageInt *imageOut)
 {
-    CImageFloat *imageY1          = NULL;
-    CImageFloat *imageY2          = NULL;
-    CImageFloat *imageR           = NULL;
-    CImageFloat *imageDerivativeX = NULL;
-    CImageFloat *imageDerivativeY = NULL;
+    CImageFloat *imageY1          = nullptr;
+    CImageFloat *imageY2          = nullptr;
+    CImageFloat *imageR           = nullptr;
+    CImageFloat *imageDerivativeX = nullptr;
+    CImageFloat *imageDerivativeY = nullptr;
     float        k;
     float        a1, a2, a3, a4;
     float        a5, a6, a7, a8;
@@ -893,11 +893,11 @@ void CEdgeDetection::computeEdgeDetectionDericheDerivative(CImageInt *imageIn, C
 void CEdgeDetection::computeEdgeDetectionDericheLaplacian(CImageInt *imageIn, CImageInt *imageOut)
 {
 #ifdef TO_DO
-    CImageFloat *imageY1         = NULL;
-    CImageFloat *imageY2         = NULL;
-    CImageFloat *imageR          = NULL;
-    CImageFloat *imageLaplacian1 = NULL;
-    CImageFloat *imageLaplacian2 = NULL;
+    CImageFloat *imageY1         = nullptr;
+    CImageFloat *imageY2         = nullptr;
+    CImageFloat *imageR          = nullptr;
+    CImageFloat *imageLaplacian1 = nullptr;
+    CImageFloat *imageLaplacian2 = nullptr;
     float        k;
     float        a1, a2, a3, a4;
     float        a5, a6, a7, a8;

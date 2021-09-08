@@ -29,7 +29,7 @@ CTreatedImageWindow::CTreatedImageWindow(int type, QImage *imageIn, QWidget *par
 {
     bool ret = false;
 
-    if (imageIn != NULL)
+    if (imageIn != nullptr)
     {
         m_imageOrigin = imageIn;
 

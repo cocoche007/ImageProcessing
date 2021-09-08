@@ -270,7 +270,7 @@ void COpMorphoMaths::initNeighborhood(void)
 //------------------------------------------------------------------------------
 void COpMorphoMaths::computeDilation(void)
 {
-    CImageInt *dilateImage = NULL;
+    CImageInt *dilateImage = nullptr;
 
     dilateImage = m_imageGray->opDilation(m_neighborhood);
     CImage2QImage(dilateImage, m_imageTreated);
@@ -288,7 +288,7 @@ void COpMorphoMaths::computeDilation(void)
 //------------------------------------------------------------------------------
 void COpMorphoMaths::computeErosion(void)
 {
-    CImageInt *erodedImage = NULL;
+    CImageInt *erodedImage = nullptr;
 
     erodedImage = m_imageGray->opErosion(m_neighborhood);
     CImage2QImage(erodedImage, m_imageTreated);
@@ -306,8 +306,8 @@ void COpMorphoMaths::computeErosion(void)
 //------------------------------------------------------------------------------
 void COpMorphoMaths::computeOpening(void)
 {
-    CImageInt *erodedImage = NULL;
-    CImageInt *dilateImage = NULL;
+    CImageInt *erodedImage = nullptr;
+    CImageInt *dilateImage = nullptr;
 
     erodedImage = m_imageGray->opErosion(m_neighborhood);
     if (erodedImage)
@@ -328,8 +328,8 @@ void COpMorphoMaths::computeOpening(void)
 //------------------------------------------------------------------------------
 void COpMorphoMaths::computeClosing(void)
 {
-    CImageInt *dilateImage = NULL;
-    CImageInt *erodedImage = NULL;
+    CImageInt *dilateImage = nullptr;
+    CImageInt *erodedImage = nullptr;
 
     dilateImage = m_imageGray->opDilation(m_neighborhood);
     if (dilateImage)
@@ -350,8 +350,8 @@ void COpMorphoMaths::computeClosing(void)
 //------------------------------------------------------------------------------
 void COpMorphoMaths::computeInteriorGradient(void)
 {
-    CImageInt *erodedImage        = NULL;
-    CImageInt *complementaryImage = NULL;
+    CImageInt *erodedImage        = nullptr;
+    CImageInt *complementaryImage = nullptr;
 
     erodedImage = m_imageGray->opErosion(m_neighborhood);
     if (erodedImage)
@@ -372,8 +372,8 @@ void COpMorphoMaths::computeInteriorGradient(void)
 //------------------------------------------------------------------------------
 void COpMorphoMaths::computeExteriorGradient(void)
 {
-    CImageInt *dilateImage        = NULL;
-    CImageInt *complementaryImage = NULL;
+    CImageInt *dilateImage        = nullptr;
+    CImageInt *complementaryImage = nullptr;
 
     dilateImage = m_imageGray->opDilation(m_neighborhood);
     if (dilateImage)
@@ -394,9 +394,9 @@ void COpMorphoMaths::computeExteriorGradient(void)
 //------------------------------------------------------------------------------
 void COpMorphoMaths::computeMorphologicalGradient(void)
 {
-    CImageInt *dilateImage        = NULL;
-    CImageInt *erodedImage        = NULL;
-    CImageInt *complementaryImage = NULL;
+    CImageInt *dilateImage        = nullptr;
+    CImageInt *erodedImage        = nullptr;
+    CImageInt *complementaryImage = nullptr;
 
     dilateImage = m_imageGray->opDilation(m_neighborhood);
     erodedImage = m_imageGray->opErosion(m_neighborhood);
@@ -419,11 +419,11 @@ void COpMorphoMaths::computeMorphologicalGradient(void)
 //------------------------------------------------------------------------------
 void COpMorphoMaths::computeHitOrMiss(void)
 {
-    CImageInt *erodedImage1                   = NULL;
-    CImageInt *erodedImage2                   = NULL;
-    CImageInt *negativeImage                  = NULL;
-    CImageInt *intersectionImage              = NULL;
-    CImageInt *localComplementaryNeighborhood = NULL;
+    CImageInt *erodedImage1                   = nullptr;
+    CImageInt *erodedImage2                   = nullptr;
+    CImageInt *negativeImage                  = nullptr;
+    CImageInt *intersectionImage              = nullptr;
+    CImageInt *localComplementaryNeighborhood = nullptr;
 
     erodedImage1  = m_imageGray->opErosion(m_neighborhood);
     negativeImage = m_imageGray->opNegative();

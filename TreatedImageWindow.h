@@ -79,7 +79,7 @@ class CTreatedImageWindow : public QWidget
     Q_OBJECT
 
 public:
-    explicit CTreatedImageWindow(int type, QImage *imageIn, QWidget *parent = 0);
+    explicit CTreatedImageWindow(int type, QImage *imageIn, QWidget *parent = nullptr);
     void display(void);
     void displayComponentY(void);
     void displayComponentU(void);

@@ -25,7 +25,7 @@
 CGeometricTransformation::CGeometricTransformation(QImage *imageIn)
 {
     m_imageOrigin  = imageIn;
-    m_imageTreated = NULL;
+    m_imageTreated = nullptr;
 }
 
 

@@ -47,8 +47,8 @@ MainWindow::MainWindow(QWidget *parent)
     QMenu *      menuEdgeDetection                        = menuBar()->addMenu(tr("&Détection Contour"));
     QMenu *      menuOpMorphoMaths                        = menuBar()->addMenu(tr("&Op. Morphomathématiques"));
     QMenu *      menuDetectionRegion                      = menuBar()->addMenu(tr("&Détection Région"));
-    QMenu *      menuEdgeDetectionLaplacian               = NULL;
-    QMenu *      menuEdgeDetectionDeriche                 = NULL;
+    QMenu *      menuEdgeDetectionLaplacian               = nullptr;
+    QMenu *      menuEdgeDetectionDeriche                 = nullptr;
     QAction *    actionOpen                               = new QAction(tr("&Ouvrir"), this);
     QAction *    actionQuit                               = new QAction(tr("&Quitter"), this);
     QAction *    actionDisplayY                           = new QAction(tr("&Y (YUV)"), this);

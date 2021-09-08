@@ -136,7 +136,7 @@ void CRegionDetection::createImageGray(QImage *imageIn, CImageInt *imageOut)
 //------------------------------------------------------------------------------
 void CRegionDetection::computeLine(void)
 {
-    CImageInt *imageVote = NULL;
+    CImageInt *imageVote = nullptr;
     int        aMin      = -m_imageOrigin->height();
     int        aMax      = 2 * m_imageOrigin->height() + 1;
     int        bMin      = -(2 * m_imageOrigin->height() + 1) * (m_imageOrigin->width() - 1);

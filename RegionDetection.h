@@ -32,7 +32,7 @@ enum DETECTION_REGION_TYPE
 class CRegionDetection
 {
 public:
-    CRegionDetection(QImage *imageIn = NULL);
+    CRegionDetection(QImage *imageIn = nullptr);
     ~CRegionDetection(void);
 
     QImage *getImageTreated(void);
