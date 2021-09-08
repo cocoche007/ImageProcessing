@@ -142,7 +142,7 @@ void COpMorphoMaths::computeOpMorphoMaths(OPMORPHOMATHS_TYPE operationType, int 
                 computeSkeletonizing();
                 break;
 
-            case OPMORPHOMATHS_UNKNOWN:
+            // Include OPMORPHOMATHS_UNKNOWN
             default:
                 break;
         }

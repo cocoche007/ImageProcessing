@@ -83,7 +83,7 @@ void CRegionDetection::computeDetectionRegion(DETECTION_REGION_TYPE detectionReg
                 computeLine();
                 break;
 
-            case DETECTION_REGION_UNKNOWN:
+            // include DETECTION_REGION_UNKNOWN
             default:
                 break;
         }
