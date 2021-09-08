@@ -580,7 +580,7 @@ void CTreatedImageWindow::displayEdgeDetectionDericheSmooth(void)
 {
     if (m_processingType == PROCESSING_EDGE_DETECTION_DERICHE_SMOOTH)
     {
-        m_edgeDetection->setAlphaDeriche((float) m_alphaDeriche / 100);
+        m_edgeDetection->setAlphaDeriche(static_cast<float>(m_alphaDeriche) / 100);
         m_edgeDetection->computeEdgeDetection(EDGE_DETECTION_DERICHE_SMOOTH, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_edgeDetection->getImageTreated()));
@@ -600,7 +600,7 @@ void CTreatedImageWindow::displayEdgeDetectionDericheDerivative(void)
 {
     if (m_processingType == PROCESSING_EDGE_DETECTION_DERICHE_DERIVATIVE)
     {
-        m_edgeDetection->setAlphaDeriche((float) m_alphaDeriche / 100);
+        m_edgeDetection->setAlphaDeriche(static_cast<float>(m_alphaDeriche) / 100);
         m_edgeDetection->computeEdgeDetection(EDGE_DETECTION_DERICHE_DERIVATIVE, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_edgeDetection->getImageTreated()));
@@ -620,7 +620,7 @@ void CTreatedImageWindow::displayEdgeDetectionDericheLaplacian(void)
 {
     if (m_processingType == PROCESSING_EDGE_DETECTION_DERICHE_LAPLACIAN)
     {
-        m_edgeDetection->setAlphaDeriche((float) m_alphaDeriche / 100);
+        m_edgeDetection->setAlphaDeriche(static_cast<float>(m_alphaDeriche) / 100);
         m_edgeDetection->computeEdgeDetection(EDGE_DETECTION_DERICHE_LAPLACIAN, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_edgeDetection->getImageTreated()));
@@ -1105,7 +1105,7 @@ bool CTreatedImageWindow::initEdgeDetection(void)
             case PROCESSING_EDGE_DETECTION_DERICHE_DERIVATIVE:
             case PROCESSING_EDGE_DETECTION_DERICHE_LAPLACIAN:
                 m_nParameters     = 2;
-                m_alphaDeriche    = m_edgeDetection->getAlphaDeriche() * 100;
+                m_alphaDeriche    = static_cast<int>(m_edgeDetection->getAlphaDeriche() * 100);
                 m_parameterLabel2 = new QLabel(tr("Alpha :"));
                 m_parameterValue2->setRange(0, 400);
                 m_parameterValue2->setValue(m_alphaDeriche);

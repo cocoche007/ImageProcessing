@@ -79,8 +79,8 @@ void CGeometricTransformation::computeRotation(int rotationAngle)
     {
         for (yIn = 0; yIn < m_imageOrigin->height(); yIn++)
         {
-            xOut = (int) (rotationCenter.x() + qCos(radianAngle) * (xIn - rotationCenter.x()) + qSin(radianAngle) * (yIn - rotationCenter.y()));
-            yOut = (int) (rotationCenter.y() + qSin(radianAngle) * (xIn - rotationCenter.x()) + qCos(radianAngle) * (yIn - rotationCenter.y()));
+            xOut = static_cast<int>(rotationCenter.x() + qCos(radianAngle) * (xIn - rotationCenter.x()) + qSin(radianAngle) * (yIn - rotationCenter.y()));
+            yOut = static_cast<int>(rotationCenter.y() + qSin(radianAngle) * (xIn - rotationCenter.x()) + qCos(radianAngle) * (yIn - rotationCenter.y()));
 
             xMin = qMin(xOut, xMin);
             yMin = qMin(yOut, yMin);
@@ -96,8 +96,8 @@ void CGeometricTransformation::computeRotation(int rotationAngle)
     {
         for (yOut = yMin; yOut < yMax; yOut++)
         {
-            xIn = (int) (rotationCenter.x() + qCos(radianAngle) * (xOut - rotationCenter.x()) + qSin(radianAngle) * (yOut - rotationCenter.y()));
-            yIn = (int) (rotationCenter.y() - qSin(radianAngle) * (xOut - rotationCenter.x()) + qCos(radianAngle) * (yOut - rotationCenter.y()));
+            xIn = static_cast<int>(rotationCenter.x() + qCos(radianAngle) * (xOut - rotationCenter.x()) + qSin(radianAngle) * (yOut - rotationCenter.y()));
+            yIn = static_cast<int>(rotationCenter.y() - qSin(radianAngle) * (xOut - rotationCenter.x()) + qCos(radianAngle) * (yOut - rotationCenter.y()));
 
             if (xIn >= 0 && xIn < m_imageOrigin->width() &&
                 yIn >= 0 && yIn < m_imageOrigin->height())
@@ -122,20 +122,20 @@ void CGeometricTransformation::computeRotation(int rotationAngle)
 //------------------------------------------------------------------------------
 void CGeometricTransformation::computeScale(int scaleFactor)
 {
-    qreal factor = (qreal) scaleFactor / 100;
+    qreal factor = static_cast<qreal>(scaleFactor) / 100;
     int   R, G, B;
     int   xIn, yIn;
     int   xOut, yOut;
 
     delete m_imageTreated;
-    m_imageTreated = new QImage((int) (m_imageOrigin->width() * factor), (int) (m_imageOrigin->height() * factor), QImage::Format_RGB32);
+    m_imageTreated = new QImage(static_cast<int>(m_imageOrigin->width() * factor), static_cast<int>(m_imageOrigin->height() * factor), QImage::Format_RGB32);
 
     for (xOut = 0; xOut < m_imageTreated->width(); xOut++)
     {
         for (yOut = 0; yOut < m_imageTreated->height(); yOut++)
         {
-            xIn = (int) (xOut / factor);
-            yIn = (int) (yOut / factor);
+            xIn = static_cast<int>(xOut / factor);
+            yIn = static_cast<int>(yOut / factor);
 
             if (xIn >= 0 && xIn < m_imageOrigin->width() &&
                 yIn >= 0 && yIn < m_imageOrigin->height())
@@ -161,20 +161,20 @@ void CGeometricTransformation::computeScale(int scaleFactor)
 //------------------------------------------------------------------------------
 void CGeometricTransformation::computeShear(int shearFactorX, int shearFactorY)
 {
-    qreal factorX = (qreal) shearFactorX / 100;
-    qreal factorY = (qreal) shearFactorY / 100;
+    qreal factorX = static_cast<qreal>(shearFactorX) / 100;
+    qreal factorY = static_cast<qreal>(shearFactorY) / 100;
     int   R, G, B;
     int   xIn, yIn;
 
     delete m_imageTreated;
-    m_imageTreated = new QImage((int) (m_imageOrigin->width() + m_imageOrigin->height() * factorX), (int) (m_imageOrigin->height() + m_imageOrigin->width() * factorY), QImage::Format_RGB32);
+    m_imageTreated = new QImage(static_cast<int>(m_imageOrigin->width() + m_imageOrigin->height() * factorX), static_cast<int>(m_imageOrigin->height() + m_imageOrigin->width() * factorY), QImage::Format_RGB32);
 
     for (int xOut = 0; xOut < m_imageTreated->width(); xOut++)
     {
         for (int yOut = 0; yOut < m_imageTreated->height(); yOut++)
         {
-            xIn = (int) ((xOut - factorX * yOut) / (1 - factorX * factorY));
-            yIn = (int) ((yOut - factorY * xOut) / (1 - factorX * factorY));
+            xIn = static_cast<int>((xOut - factorX * yOut) / (1 - factorX * factorY));
+            yIn = static_cast<int>((yOut - factorY * xOut) / (1 - factorX * factorY));
 
             if (xIn >= 0 && xIn < m_imageOrigin->width() &&
                 yIn >= 0 && yIn < m_imageOrigin->height())

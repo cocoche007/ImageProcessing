@@ -117,9 +117,9 @@ void CQuantisation::computeRGBQuantisation(int quantisationLevel)
             {
                 for (int y = 0; y < m_imageOrigin->height(); y++)
                 {
-                    R = ((qRed(m_imageOrigin->pixel(x, y) / pas * 2 + 1) * pas)) / 2;
-                    G = ((qGreen(m_imageOrigin->pixel(x, y) / pas * 2 + 1) * pas)) / 2;
-                    B = ((qBlue(m_imageOrigin->pixel(x, y) / pas * 2 + 1) * pas)) / 2;
+                    R = ((qRed(m_imageOrigin->pixel(x, y) / static_cast<unsigned int>(pas) * 2 + 1) * pas)) / 2;
+                    G = ((qGreen(m_imageOrigin->pixel(x, y) / static_cast<unsigned int>(pas) * 2 + 1) * pas)) / 2;
+                    B = ((qBlue(m_imageOrigin->pixel(x, y) / static_cast<unsigned int>(pas) * 2 + 1) * pas)) / 2;
 
                     m_imageTreated->setPixel(x, y, qRgb(R, G, B));
                 }

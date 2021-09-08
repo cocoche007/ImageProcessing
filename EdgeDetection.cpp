@@ -412,7 +412,7 @@ void CEdgeDetection::computeEdgeDetectionSimple(CImageInt *imageIn, CImageInt *i
                 K1 = imageIn->get(x, y) - imageIn->get(x - 1, y);
                 K2 = imageIn->get(x, y) - imageIn->get(x, y - 1);
 
-                (*imageOut)(x, y) = qSqrt(K1 * K1 + K2 * K2);
+                (*imageOut)(x, y) = static_cast<int>(qSqrt(K1 * K1 + K2 * K2));
 
                 if (imageOut->getMax() < imageOut->get(x, y))
                     imageOut->setMax(imageOut->get(x, y));
@@ -444,7 +444,7 @@ void CEdgeDetection::computeEdgeDetectionRoberts(CImageInt *imageIn, CImageInt *
                 K1 = imageIn->get(x, y + 1) - imageIn->get(x + 1, y);
                 K2 = imageIn->get(x + 1, y + 1) - imageIn->get(x, y);
 
-                (*imageOut)(x, y) = qSqrt(K1 * K1 + K2 * K2);
+                (*imageOut)(x, y) = static_cast<int>(qSqrt(K1 * K1 + K2 * K2));
 
                 if (imageOut->getMax() < imageOut->get(x, y))
                     imageOut->setMax(imageOut->get(x, y));
@@ -476,7 +476,7 @@ void CEdgeDetection::computeEdgeDetectionSobel(CImageInt *imageIn, CImageInt *im
                 K1 = convolution(imageIn, x, y, sobelMatrix1, 4);
                 K2 = convolution(imageIn, x, y, sobelMatrix2, 4);
 
-                (*imageOut)(x, y) = qSqrt(K1 * K1 + K2 * K2);
+                (*imageOut)(x, y) = static_cast<int>(qSqrt(K1 * K1 + K2 * K2));
 
                 if (imageOut->getMax() < imageOut->get(x, y))
                     imageOut->setMax(imageOut->get(x, y));
