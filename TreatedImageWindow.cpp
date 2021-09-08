@@ -98,10 +98,10 @@ CTreatedImageWindow::CTreatedImageWindow(int type, QImage *imageIn, QWidget *par
                 m_processingType = PROCESSING_UNKNOWN;
         }
         else
-            QMessageBox::critical(this, tr(""), tr("Veuillez ouvrir une image"));
+            QMessageBox::critical(this, tr(""), tr("Please open an image"));
     }
     else
-        QMessageBox::critical(this, tr(""), tr("Erreur d'allocation mémoire"));
+        QMessageBox::critical(this, tr(""), tr("Memory allocation error"));
 }
 
 
@@ -260,7 +260,7 @@ void CTreatedImageWindow::displayComponentY(void)
         m_colorModel->computeComponentY();
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_colorModel->getImageTreated()));
-        setWindowTitle(tr("Composante Y"));
+        setWindowTitle(tr("Y component"));
     }
 }
 
@@ -279,7 +279,7 @@ void CTreatedImageWindow::displayComponentU(void)
         m_colorModel->computeComponentU();
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_colorModel->getImageTreated()));
-        setWindowTitle(tr("Composante U"));
+        setWindowTitle(tr("U component"));
     }
 }
 
@@ -298,7 +298,7 @@ void CTreatedImageWindow::displayComponentV(void)
         m_colorModel->computeComponentV();
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_colorModel->getImageTreated()));
-        setWindowTitle(tr("Composante V"));
+        setWindowTitle(tr("V component"));
     }
 }
 
@@ -317,7 +317,7 @@ void CTreatedImageWindow::displayQuantisationGray(void)
         m_quantisation->computeGrayQuantisation(m_quantisationLevel);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_quantisation->getImageTreated()));
-        setWindowTitle(tr("Quantification Gris"));
+        setWindowTitle(tr("Grayscale quantisation"));
     }
 }
 
@@ -336,7 +336,7 @@ void CTreatedImageWindow::displayQuantisationRGB(void)
         m_quantisation->computeRGBQuantisation(m_quantisationLevel);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_quantisation->getImageTreated()));
-        setWindowTitle(tr("Quantification RGB"));
+        setWindowTitle(tr("RGB quantisation"));
     }
 }
 
@@ -355,7 +355,7 @@ void CTreatedImageWindow::displayFourierTransform(void)
         m_sampling->computeFourierTransform();
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_sampling->getImageTreated()));
-        setWindowTitle(tr("Transformée de Fourier"));
+        setWindowTitle(tr("Fourier transform"));
     }
 }
 
@@ -393,7 +393,7 @@ void CTreatedImageWindow::displayScale(void)
         m_geometricTransformation->computeScale(m_scaleFactor);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_geometricTransformation->getImageTreated()));
-        setWindowTitle(tr("Homothétie"));
+        setWindowTitle(tr("Homothety"));
     }
 }
 
@@ -412,7 +412,7 @@ void CTreatedImageWindow::displayShear(void)
         m_geometricTransformation->computeShear(m_shearFactorX, m_shearFactorY);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_geometricTransformation->getImageTreated()));
-        setWindowTitle(tr("Cisaillement"));
+        setWindowTitle(tr("Shearing"));
     }
 }
 
@@ -431,7 +431,7 @@ void CTreatedImageWindow::displayEdgeDetectionSimple(void)
         m_edgeDetection->computeEdgeDetection(EDGE_DETECTION_SIMPLE, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_edgeDetection->getImageTreated()));
-        setWindowTitle(tr("Détection Contours Naïf"));
+        setWindowTitle(tr("Edge detection (naive)"));
     }
 }
 
@@ -450,7 +450,7 @@ void CTreatedImageWindow::displayEdgeDetectionRoberts(void)
         m_edgeDetection->computeEdgeDetection(EDGE_DETECTION_ROBERTS, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_edgeDetection->getImageTreated()));
-        setWindowTitle(tr("Détection Contours Roberts"));
+        setWindowTitle(tr("Edge detection (Roberts)"));
     }
 }
 
@@ -469,7 +469,7 @@ void CTreatedImageWindow::displayEdgeDetectionSobel(void)
         m_edgeDetection->computeEdgeDetection(EDGE_DETECTION_SOBEL, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_edgeDetection->getImageTreated()));
-        setWindowTitle(tr("Détection Contours Sobel"));
+        setWindowTitle(tr("Edge detection (Sobel)"));
     }
 }
 
@@ -488,7 +488,7 @@ void CTreatedImageWindow::displayEdgeDetectionPrewitt(void)
         m_edgeDetection->computeEdgeDetection(EDGE_DETECTION_PREWITT, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_edgeDetection->getImageTreated()));
-        setWindowTitle(tr("Détection Contours Prewitt"));
+        setWindowTitle(tr("Edge detection (Prewitt)"));
     }
 }
 
@@ -507,7 +507,7 @@ void CTreatedImageWindow::displayEdgeDetectionKirsch(void)
         m_edgeDetection->computeEdgeDetection(EDGE_DETECTION_KIRSCH, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_edgeDetection->getImageTreated()));
-        setWindowTitle(tr("Détection Contours Kirsch"));
+        setWindowTitle(tr("Edge detection (Kirsch)"));
     }
 }
 
@@ -526,7 +526,7 @@ void CTreatedImageWindow::displayEdgeDetectionLaplacianConnexity4(void)
         m_edgeDetection->computeEdgeDetection(EDGE_DETECTION_LAPLACIAN_CONNEXITY_4, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_edgeDetection->getImageTreated()));
-        setWindowTitle(tr("Détection Contours Laplacian Connexité 4"));
+        setWindowTitle(tr("Edge detection (Laplacian Connectedness 4)"));
     }
 }
 
@@ -545,7 +545,7 @@ void CTreatedImageWindow::displayEdgeDetectionLaplacianConnexity8(void)
         m_edgeDetection->computeEdgeDetection(EDGE_DETECTION_LAPLACIAN_CONNEXITY_8, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_edgeDetection->getImageTreated()));
-        setWindowTitle(tr("Détection Contours Laplacian Connexité 8"));
+        setWindowTitle(tr("Edge detection (Laplacian Connectedness 8)"));
     }
 }
 
@@ -564,7 +564,7 @@ void CTreatedImageWindow::displayEdgeDetectionLaplacianDOG(void)
         m_edgeDetection->computeEdgeDetection(EDGE_DETECTION_LAPLACIAN_DOG, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_edgeDetection->getImageTreated()));
-        setWindowTitle(tr("Détection Contours Laplacian DOG"));
+        setWindowTitle(tr("Edge detection (Laplacian DOG)"));
     }
 }
 
@@ -584,7 +584,7 @@ void CTreatedImageWindow::displayEdgeDetectionDericheSmooth(void)
         m_edgeDetection->computeEdgeDetection(EDGE_DETECTION_DERICHE_SMOOTH, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_edgeDetection->getImageTreated()));
-        setWindowTitle(tr("Détection Contours Deriche Smooth"));
+        setWindowTitle(tr("Edge detection (Deriche Smooth)"));
     }
 }
 
@@ -604,7 +604,7 @@ void CTreatedImageWindow::displayEdgeDetectionDericheDerivative(void)
         m_edgeDetection->computeEdgeDetection(EDGE_DETECTION_DERICHE_DERIVATIVE, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_edgeDetection->getImageTreated()));
-        setWindowTitle(tr("Détection Contours Deriche Dérivée"));
+        setWindowTitle(tr("Edge detection (Deriche Derivated)"));
     }
 }
 
@@ -624,7 +624,7 @@ void CTreatedImageWindow::displayEdgeDetectionDericheLaplacian(void)
         m_edgeDetection->computeEdgeDetection(EDGE_DETECTION_DERICHE_LAPLACIAN, m_thresholdMin, m_thresholdMax, m_isMonochrom);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_edgeDetection->getImageTreated()));
-        setWindowTitle(tr("Détection Contours Deriche Laplacian"));
+        setWindowTitle(tr("Edge detection (Deriche Laplacian)"));
     }
 }
 
@@ -681,7 +681,7 @@ void CTreatedImageWindow::displayOpMorphoMathsOpening(void)
         m_opMorphoMaths->computeOpMorphoMaths(OPMORPHOMATHS_OPENING, m_opMorphoMathsDimension);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_opMorphoMaths->getImageTreated()));
-        setWindowTitle(tr("Ouverture"));
+        setWindowTitle(tr("Opening"));
     }
 }
 
@@ -700,7 +700,7 @@ void CTreatedImageWindow::displayOpMorphoMathsClosing(void)
         m_opMorphoMaths->computeOpMorphoMaths(OPMORPHOMATHS_CLOSING, m_opMorphoMathsDimension);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_opMorphoMaths->getImageTreated()));
-        setWindowTitle(tr("Fermeture"));
+        setWindowTitle(tr("Closing"));
     }
 }
 
@@ -719,7 +719,7 @@ void CTreatedImageWindow::displayOpMorphoMathsInteriorGradient(void)
         m_opMorphoMaths->computeOpMorphoMaths(OPMORPHOMATHS_INTERIOR_GRADIENT, m_opMorphoMathsDimension);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_opMorphoMaths->getImageTreated()));
-        setWindowTitle(tr("Contour intérieur"));
+        setWindowTitle(tr("Interior gradient"));
     }
 }
 
@@ -738,7 +738,7 @@ void CTreatedImageWindow::displayOpMorphoMathsExteriorGradient(void)
         m_opMorphoMaths->computeOpMorphoMaths(OPMORPHOMATHS_EXTERIOR_GRADIENT, m_opMorphoMathsDimension);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_opMorphoMaths->getImageTreated()));
-        setWindowTitle(tr("Contour extérieur"));
+        setWindowTitle(tr("Exterior gradient"));
     }
 }
 
@@ -757,7 +757,7 @@ void CTreatedImageWindow::displayOpMorphoMathsMorphologicalGradient(void)
         m_opMorphoMaths->computeOpMorphoMaths(OPMORPHOMATHS_MORPHOLOGICAL_GRADIENT, m_opMorphoMathsDimension);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_opMorphoMaths->getImageTreated()));
-        setWindowTitle(tr("Gradient morphologique"));
+        setWindowTitle(tr("Morphological gradient"));
     }
 }
 
@@ -776,7 +776,7 @@ void CTreatedImageWindow::displayOpMorphoMathsHitOrMiss(void)
         m_opMorphoMaths->computeOpMorphoMaths(OPMORPHOMATHS_HIT_OR_MISS, m_opMorphoMathsDimension);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_opMorphoMaths->getImageTreated()));
-        setWindowTitle(tr("Tout ou rien"));
+        setWindowTitle(tr("Hit or miss"));
     }
 }
 
@@ -795,7 +795,7 @@ void CTreatedImageWindow::displayOpMorphoMathsThinning(void)
         m_opMorphoMaths->computeOpMorphoMaths(OPMORPHOMATHS_THINNING, m_opMorphoMathsDimension);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_opMorphoMaths->getImageTreated()));
-        setWindowTitle(tr("Amincissement"));
+        setWindowTitle(tr("Thinning"));
     }
 }
 
@@ -814,7 +814,7 @@ void CTreatedImageWindow::displayOpMorphoMathsSkeletonizing(void)
         m_opMorphoMaths->computeOpMorphoMaths(OPMORPHOMATHS_SKELETONIZING, m_opMorphoMathsDimension);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_opMorphoMaths->getImageTreated()));
-        setWindowTitle(tr("Squelettisation"));
+        setWindowTitle(tr("Skeletonizing"));
     }
 }
 
@@ -833,7 +833,7 @@ void CTreatedImageWindow::displayRegionDetectionLine(void)
         m_regionDetection->computeDetectionRegion(DETECTION_REGION_LINE);
 
         m_labelImage->setPixmap(QPixmap::fromImage(*m_regionDetection->getImageTreated()));
-        setWindowTitle(tr("Détection Droite"));
+        setWindowTitle(tr("Line detection"));
     }
 }
 
@@ -882,7 +882,7 @@ bool CTreatedImageWindow::initQuantisation(void)
     m_vboxLayout        = new QVBoxLayout;
     m_hboxLayout        = new QHBoxLayout;
     m_labelImage        = new QLabel(this);
-    m_levelText         = new QLineEdit(tr("Niveau Quantification :"));
+    m_levelText         = new QLineEdit(tr("Quantisation level:"));
     m_levelChoice       = new QSpinBox();
     m_quantisation      = new CQuantisation(m_imageOrigin);
     m_quantisationLevel = 1;
@@ -976,7 +976,7 @@ bool CTreatedImageWindow::initGeometricTransformation(void)
                 m_nParameters   = 1;
                 m_rotationAngle = 0;
 
-                m_parameterLabel1->setText(tr("Angle Rotation :"));
+                m_parameterLabel1->setText(tr("Rotation angle:"));
                 m_parameterValue1->setRange(0, 360);
                 m_parameterValue1->setValue(m_rotationAngle);
 
@@ -986,7 +986,7 @@ bool CTreatedImageWindow::initGeometricTransformation(void)
             case PROCESSING_GEOMETRIC_TRANSFORMATION_SCALE:
                 m_nParameters = 1;
                 m_scaleFactor = 100;
-                m_parameterLabel1->setText(tr("Facteur Homothétie :"));
+                m_parameterLabel1->setText(tr("Scale factor:"));
                 m_parameterValue1->setRange(1, 200);
                 m_parameterValue1->setValue(m_scaleFactor);
 
@@ -998,8 +998,8 @@ bool CTreatedImageWindow::initGeometricTransformation(void)
                 m_shearFactorX = 0;
                 m_shearFactorY = 0;
 
-                m_parameterLabel1->setText(tr("Facteur Cisaillement X"));
-                m_parameterLabel2->setText(tr("Facteur Cisaillement Y"));
+                m_parameterLabel1->setText(tr("Shearing factor by X:"));
+                m_parameterLabel2->setText(tr("Shearing factor by Y:"));
                 m_parameterValue1->setRange(0, 100);
                 m_parameterValue2->setRange(0, 100);
                 m_parameterValue1->setValue(m_shearFactorX);
@@ -1056,7 +1056,7 @@ bool CTreatedImageWindow::initEdgeDetection(void)
     m_thresholdMinSlider   = new QSlider(Qt::Horizontal);
     m_thresholdMaxSlider   = new QSlider(Qt::Horizontal);
     m_checkbox1            = new QCheckBox();
-    m_labelCheckbox1       = new QLabel(tr("MC"));
+    m_labelCheckbox1       = new QLabel(tr("Monochrom"));
     m_checkbox2            = new QCheckBox();
     m_labelCheckbox2       = new QLabel(tr("Inv"));
     m_edgeDetection        = new CEdgeDetection(m_imageOrigin);
@@ -1106,7 +1106,7 @@ bool CTreatedImageWindow::initEdgeDetection(void)
             case PROCESSING_EDGE_DETECTION_DERICHE_LAPLACIAN:
                 m_nParameters     = 2;
                 m_alphaDeriche    = static_cast<int>(m_edgeDetection->getAlphaDeriche() * 100);
-                m_parameterLabel2 = new QLabel(tr("Alpha :"));
+                m_parameterLabel2 = new QLabel(tr("Alpha:"));
                 m_parameterValue2->setRange(0, 400);
                 m_parameterValue2->setValue(m_alphaDeriche);
                 connect(m_parameterValue2, SIGNAL(valueChanged(int)), this, SLOT(updateAlphaDeriche(int)));
@@ -1159,7 +1159,7 @@ bool CTreatedImageWindow::initOpMorphoMaths(void)
     m_vboxLayout      = new QVBoxLayout;
     m_gridLayout      = new QGridLayout;
     m_labelImage      = new QLabel(this);
-    m_parameterLabel1 = new QLabel(tr("Dimension"));
+    m_parameterLabel1 = new QLabel(tr("Dimension:"));
     m_parameterValue1 = new QSpinBox();
     m_opMorphoMaths   = new COpMorphoMaths(m_imageOrigin);
 
@@ -1225,7 +1225,7 @@ bool CTreatedImageWindow::initRegionDetection(void)
 // Public Slot Method(s):
 
 //------------------------------------------------------------------------------
-//! Update the quantisation level ("Quantification" treatment)
+//! Update the quantisation level ("Quantisation" treatment)
 //!
 //! @param level The quantisation level
 //!

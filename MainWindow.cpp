@@ -39,49 +39,49 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
     QWidget *    centralArea                              = new QWidget;
-    QMenu *      menuFile                                 = menuBar()->addMenu(tr("&Fichier"));
-    QMenu *      menuColorModel                           = menuBar()->addMenu(tr("&Modele"));
-    QMenu *      menuQuantisation                         = menuBar()->addMenu(tr("&Quantification"));
-    QMenu *      menuSampling                             = menuBar()->addMenu(tr("&Echantillonnage"));
-    QMenu *      menuGeometricTransformation              = menuBar()->addMenu(tr("&Transfo Géo"));
-    QMenu *      menuEdgeDetection                        = menuBar()->addMenu(tr("&Détection Contour"));
-    QMenu *      menuOpMorphoMaths                        = menuBar()->addMenu(tr("&Op. Morphomathématiques"));
-    QMenu *      menuDetectionRegion                      = menuBar()->addMenu(tr("&Détection Région"));
+    QMenu *      menuFile                                 = menuBar()->addMenu(tr("&File"));
+    QMenu *      menuColorModel                           = menuBar()->addMenu(tr("&Model"));
+    QMenu *      menuQuantisation                         = menuBar()->addMenu(tr("&Quantisation"));
+    QMenu *      menuSampling                             = menuBar()->addMenu(tr("&Sampling"));
+    QMenu *      menuGeometricTransformation              = menuBar()->addMenu(tr("&Geometric Transforms"));
+    QMenu *      menuEdgeDetection                        = menuBar()->addMenu(tr("&Edge Detection"));
+    QMenu *      menuOpMorphoMaths                        = menuBar()->addMenu(tr("&Mathematical morphology"));
+    QMenu *      menuDetectionRegion                      = menuBar()->addMenu(tr("&Region Detection"));
     QMenu *      menuEdgeDetectionLaplacian               = nullptr;
     QMenu *      menuEdgeDetectionDeriche                 = nullptr;
-    QAction *    actionOpen                               = new QAction(tr("&Ouvrir"), this);
-    QAction *    actionQuit                               = new QAction(tr("&Quitter"), this);
+    QAction *    actionOpen                               = new QAction(tr("&Open"), this);
+    QAction *    actionQuit                               = new QAction(tr("&Quit"), this);
     QAction *    actionDisplayY                           = new QAction(tr("&Y (YUV)"), this);
     QAction *    actionDisplayU                           = new QAction(tr("&U (YUV)"), this);
     QAction *    actionDisplayV                           = new QAction(tr("&V (YUV)"), this);
-    QAction *    actionQuantisationGray                   = new QAction(tr("&Niveau de gris"), this);
-    QAction *    actionQuantisationRGB                    = new QAction(tr("&Couleur"), this);
-    QAction *    actionFourierTransform                   = new QAction(tr("&Transformée de Fourier"), this);
+    QAction *    actionQuantisationGray                   = new QAction(tr("&Grayscale"), this);
+    QAction *    actionQuantisationRGB                    = new QAction(tr("&RGB"), this);
+    QAction *    actionFourierTransform                   = new QAction(tr("&Fourier Transform"), this);
     QAction *    actionGeometricTransformationRotation    = new QAction(tr("&Rotation"), this);
-    QAction *    actionGeometricTransformationScale       = new QAction(tr("&Homothétie"), this);
-    QAction *    actionGeometricTransformationShear       = new QAction(tr("&Cisaillement"), this);
-    QAction *    actionEdgeDetectionSimple                = new QAction(tr("&Naïf"), this);
+    QAction *    actionGeometricTransformationScale       = new QAction(tr("&Homothety"), this);
+    QAction *    actionGeometricTransformationShear       = new QAction(tr("&Shearing"), this);
+    QAction *    actionEdgeDetectionSimple                = new QAction(tr("&Naive"), this);
     QAction *    actionEdgeDetectionRoberts               = new QAction(tr("&Roberts"), this);
     QAction *    actionEdgeDetectionSobel                 = new QAction(tr("&Sobel"), this);
     QAction *    actionEdgeDetectionPrewitt               = new QAction(tr("&Prewitt"), this);
     QAction *    actionEdgeDetectionKirsch                = new QAction(tr("&Kirsch"), this);
-    QAction *    actionEdgeDetectionLaplacianConnexity4   = new QAction(tr("&Connexité 4"), this);
-    QAction *    actionEdgeDetectionLaplacianConnexity8   = new QAction(tr("&Connexité 8"), this);
+    QAction *    actionEdgeDetectionLaplacianConnexity4   = new QAction(tr("&Connectedness 4"), this);
+    QAction *    actionEdgeDetectionLaplacianConnexity8   = new QAction(tr("&Connectedness 8"), this);
     QAction *    actionEdgeDetectionLaplacianDOG          = new QAction(tr("&DOG"), this);
-    QAction *    actionEdgeDetectionDericheSmooth         = new QAction(tr("&Lissage"), this);
-    QAction *    actionEdgeDetectionDericheDerivative     = new QAction(tr("&Dérivée"), this);
-    QAction *    actionEdgeDetectionDericheLaplacian      = new QAction(tr("&Laplacien"), this);
+    QAction *    actionEdgeDetectionDericheSmooth         = new QAction(tr("&Smoothing"), this);
+    QAction *    actionEdgeDetectionDericheDerivative     = new QAction(tr("&Derivative"), this);
+    QAction *    actionEdgeDetectionDericheLaplacian      = new QAction(tr("&Laplacian"), this);
     QAction *    actionOpMorphoMathsDilation              = new QAction(tr("&Dilatation"), this);
     QAction *    actionOpMorphoMathsErosion               = new QAction(tr("&Erosion"), this);
-    QAction *    actionOpMorphoMathsOpening               = new QAction(tr("&Ouverture"), this);
-    QAction *    actionOpMorphoMathsClosing               = new QAction(tr("&Fermeture"), this);
-    QAction *    actionOpMorphoMathsInteriorGradient      = new QAction(tr("&Contour intérieur"), this);
-    QAction *    actionOpMorphoMathsExteriorGradient      = new QAction(tr("&Contour extérieur"), this);
-    QAction *    actionOpMorphoMathsMorphologicalGradient = new QAction(tr("&Gradient morphologique"), this);
-    QAction *    actionOpMorphoMathsHitOrMiss             = new QAction(tr("&Tout ou rien"), this);
-    QAction *    actionOpMorphoMathsThinning              = new QAction(tr("&Amincissement"), this);
-    QAction *    actionOpMorphoMathsSkeletonizing         = new QAction(tr("&Squelettisation"), this);
-    QAction *    actionRegionDetectionLine                = new QAction(tr("&Droite"), this);
+    QAction *    actionOpMorphoMathsOpening               = new QAction(tr("&Opening"), this);
+    QAction *    actionOpMorphoMathsClosing               = new QAction(tr("&Closing"), this);
+    QAction *    actionOpMorphoMathsInteriorGradient      = new QAction(tr("&Interior gradient"), this);
+    QAction *    actionOpMorphoMathsExteriorGradient      = new QAction(tr("&Exterior gradient"), this);
+    QAction *    actionOpMorphoMathsMorphologicalGradient = new QAction(tr("&Morphological gradient"), this);
+    QAction *    actionOpMorphoMathsHitOrMiss             = new QAction(tr("&Hit or miss"), this);
+    QAction *    actionOpMorphoMathsThinning              = new QAction(tr("&Thinning"), this);
+    QAction *    actionOpMorphoMathsSkeletonizing         = new QAction(tr("&Skeletonization"), this);
+    QAction *    actionRegionDetectionLine                = new QAction(tr("&Line"), this);
     QVBoxLayout *layout                                   = new QVBoxLayout;
 
     menuFile->addAction(actionOpen);
@@ -105,7 +105,7 @@ MainWindow::MainWindow(QWidget *parent)
     menuEdgeDetection->addAction(actionEdgeDetectionSobel);
     menuEdgeDetection->addAction(actionEdgeDetectionPrewitt);
     menuEdgeDetection->addAction(actionEdgeDetectionKirsch);
-    menuEdgeDetectionLaplacian = menuEdgeDetection->addMenu(tr("&Laplacien"));
+    menuEdgeDetectionLaplacian = menuEdgeDetection->addMenu(tr("&Laplacian"));
     menuEdgeDetectionLaplacian->addAction(actionEdgeDetectionLaplacianConnexity4);
     menuEdgeDetectionLaplacian->addAction(actionEdgeDetectionLaplacianConnexity8);
     menuEdgeDetectionDeriche = menuEdgeDetection->addMenu(tr("&Deriche"));
@@ -198,7 +198,7 @@ MainWindow::~MainWindow()
 //------------------------------------------------------------------------------
 void MainWindow::openImage(void)
 {
-    m_imageFilename = QFileDialog::getOpenFileName(this, tr("Ouvrir un fichier"), QString(), tr("Images (*.png *.gif *.jpg *.jpeg *.bmp)"));
+    m_imageFilename = QFileDialog::getOpenFileName(this, tr("Open a file"), QString(), tr("Images (*.png *.gif *.jpg *.jpeg *.bmp)"));
 
     m_imageOrigin.load(m_imageFilename);
 
@@ -417,7 +417,7 @@ void MainWindow::displayEdgeDetectionKirsch(void)
 
 
 //------------------------------------------------------------------------------
-//! Display the resulted by "Laplacian with connectivity 4" edge detection of
+//! Display the resulted by "Laplacian with connectedness 4" edge detection of
 //! the image
 //!
 //! @param _
@@ -433,7 +433,7 @@ void MainWindow::displayEdgeDetectionLaplacianConnexity4(void)
 
 
 //------------------------------------------------------------------------------
-//! Display the resulted by "Laplacian with connectivity 8" edge detection of
+//! Display the resulted by "Laplacian with connectedness 8" edge detection of
 //! the image
 //!
 //! @param _
