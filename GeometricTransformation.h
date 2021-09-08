@@ -5,8 +5,8 @@
 //! @version 1.0
 //------------------------------------------------------------------------------
 
-#ifndef __GEOMETRIC_TRANSFORMATION_H__
-#define __GEOMETRIC_TRANSFORMATION_H__
+#ifndef GEOMETRIC_TRANSFORMATION_HEADER
+#define GEOMETRIC_TRANSFORMATION_HEADER
 
 //------------------------------------------------------------------------------
 // Include(s) :
@@ -33,4 +33,4 @@ private:
     QImage *m_imageTreated;
 };
 
-#endif // __GEOMETRIC_TRANSFORMATION_H__
+#endif // GEOMETRIC_TRANSFORMATION_HEADER

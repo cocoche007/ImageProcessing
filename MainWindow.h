@@ -5,8 +5,8 @@
 //! @version 1.0
 //------------------------------------------------------------------------------
 
-#ifndef __MAIN_WINDOW_H__
-#define __MAIN_WINDOW_H__
+#ifndef MAIN_WINDOW_HEADER
+#define MAIN_WINDOW_HEADER
 
 //------------------------------------------------------------------------------
 // Include(s) :
@@ -26,7 +26,7 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    ~MainWindow() override;
 
 public slots:
     void openImage(void);
@@ -68,4 +68,4 @@ private:
     QImage  m_imageOrigin;
 };
 
-#endif // __MAIN_WINDOW_H__
+#endif // MAIN_WINDOW_HEADER

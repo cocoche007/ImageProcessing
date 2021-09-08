@@ -5,8 +5,8 @@
 //! @version 1.0
 //------------------------------------------------------------------------------
 
-#ifndef __TREATED_IMAGE_WINDOW_H__
-#define __TREATED_IMAGE_WINDOW_H__
+#ifndef TREATED_IMAGE_WINDOW_HEADER
+#define TREATED_IMAGE_WINDOW_HEADER
 
 //------------------------------------------------------------------------------
 // Include(s) :
@@ -180,4 +180,4 @@ public slots:
     void updateOpMorphoMathsDimension(int dimension);
 };
 
-#endif // __TREATED_IMAGE_WINDOW_H__
+#endif // TREATED_IMAGE_WINDOW_HEADER

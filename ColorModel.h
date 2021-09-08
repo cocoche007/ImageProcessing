@@ -5,8 +5,8 @@
 //! @version 1.0
 //------------------------------------------------------------------------------
 
-#ifndef __COLOR_MODEL_H__
-#define __COLOR_MODEL_H__
+#ifndef COLOR_MODEL_HEADER
+#define COLOR_MODEL_HEADER
 
 //------------------------------------------------------------------------------
 // Include(s):
@@ -33,4 +33,4 @@ private:
     QImage *m_imageTreated;
 };
 
-#endif // __COLOR_MODEL_H__
+#endif // COLOR_MODEL_HEADER

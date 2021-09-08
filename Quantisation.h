@@ -5,8 +5,8 @@
 //! @version 1.0
 //------------------------------------------------------------------------------
 
-#ifndef __QUANTISATION_H__
-#define __QUANTISATION_H__
+#ifndef QUANTISATION_HEADER
+#define QUANTISATION_HEADER
 
 //------------------------------------------------------------------------------
 // Include(s) :
@@ -32,4 +32,4 @@ private:
     QImage *m_imageTreated;
 };
 
-#endif // __QUANTISATION_H__
+#endif // QUANTISATION_HEADER

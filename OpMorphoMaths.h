@@ -5,8 +5,8 @@
 //! @version 1.0
 //------------------------------------------------------------------------------
 
-#ifndef __OP_MORPHO_MATHS_H__
-#define __OP_MORPHO_MATHS_H__
+#ifndef OP_MORPHO_MATHS_HEADER
+#define OP_MORPHO_MATHS_HEADER
 
 //------------------------------------------------------------------------------
 // Include(s) :
@@ -85,4 +85,4 @@ private:
     void CImage2QImage(CImageInt *imageIn, QImage *imageOut);
 };
 
-#endif // __OP_MORPHO_MATHS_H__
+#endif // OP_MORPHO_MATHS_HEADER

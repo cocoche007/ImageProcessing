@@ -5,8 +5,8 @@
 //! @version 1.0
 //------------------------------------------------------------------------------
 
-#ifndef __EDGE_DETECTION_H__
-#define __EDGE_DETECTION_H__
+#ifndef EDGE_DETECTION_HEADER
+#define EDGE_DETECTION_HEADER
 
 //------------------------------------------------------------------------------
 // Include(s) :
@@ -83,4 +83,4 @@ private:
     void computeEdgeDetectionDericheLaplacian(CImageInt *imageIn, CImageInt *imageOut);
 };
 
-#endif // __EDGE_DETECTION_H__
+#endif // EDGE_DETECTION_HEADER

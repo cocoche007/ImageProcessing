@@ -5,8 +5,8 @@
 //! @version 1.0
 //------------------------------------------------------------------------------
 
-#ifndef __SAMPLING_H__
-#define __SAMPLING_H__
+#ifndef SAMPLING_HEADER
+#define SAMPLING_HEADER
 
 //------------------------------------------------------------------------------
 // Include(s) :
@@ -33,4 +33,4 @@ private:
     QImage *m_imageTreated;
 };
 
-#endif // __SAMPLING_H__
+#endif // SAMPLING_HEADER

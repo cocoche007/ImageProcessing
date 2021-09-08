@@ -5,8 +5,8 @@
 //! @version 1.0
 //------------------------------------------------------------------------------
 
-#ifndef __REGION_DETECTION_H__
-#define __REGION_DETECTION_H__
+#ifndef REGION_DETECTION_HEADER
+#define REGION_DETECTION_HEADER
 
 //------------------------------------------------------------------------------
 // Include(s) :
@@ -49,4 +49,4 @@ private:
     void CImage2QImage(CImageInt *imageIn, QImage *imageOut);
 };
 
-#endif // __REGION_DETECTION_H__
+#endif // REGION_DETECTION_HEADER
